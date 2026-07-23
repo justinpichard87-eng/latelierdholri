@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'Atelier d'Holrï — Basé à Naves en Corrèze, intervenant en Nouvelle-Aquitaine et sur toute la France. Visualisez votre décoration de mariage en 3D avant fabrication. Officiant de cérémonie laïque & coordination Jour J.">
+<title>L'Atelier d'Holrï — Mariage sur mesure, de la décoration à la cérémonie</title>
+<style>
+:root {
+  /* Palette solaire — entièrement lumineuse */
+  --ink:    #3D2B1A;          /* Brun chaud — textes principaux */
+  --inkMid: #6B4E35;          /* Brun doré — textes corps */
+  --inkL:   #A08060;          /* Sable doré — textes secondaires */
+  --cream:  #FFFDF8;          /* Blanc solaire — fond principal */
+  --parch:  #FDF5E8;          /* Crème dorée — sections alternées */
+  --warm:   #FAE8CC;          /* Abricot très pâle — sections chaudes */
+  --border: #E8D5B8;          /* Sable — bordures */
+  --gold:   #C4903A;          /* Or soleil — accent principal */
+  --goldL:  #D4A85A;          /* Or clair */
+  --goldP:  #F5E0B8;          /* Or pâle */
+  --sun:    #E8A84A;          /* Soleil — accents vifs */
+  --sunL:   #F5D090;          /* Soleil pâle */
+  --white:  #FFFFFF;
+  --alert:  #B03A2E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Georgia',serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-tap-highlight-color:transparent;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,253,248,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(196,144,58,0.25);}
+.nav-brand{font-family:'Georgia',serif;font-size:17px;color:var(--ink);letter-spacing:0.05em;}
+.nav-brand em{color:var(--goldL);font-style:normal;}
+.nav-links{display:flex;gap:26px;list-style:none;}
+.nav-links a{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--inkL);transition:color .2s;}
+.nav-links a:hover{color:var(--goldL);}
+.nav-cta{padding:9px 20px;background:var(--gold);color:var(--white);border-radius:3px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;transition:background .2s;}
+.nav-cta:hover{background:#8A6D3C;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.burger span{display:block;width:22px;height:1.5px;background:var(--inkMid);border-radius:2px;}
+@media(max-width:860px){.nav-links,.nav-cta{display:none;}.burger{display:flex;}.nav{padding:0 24px;}}
+
+/* ZONE GEO */
+.geo-bar{background:rgba(196,147,122,0.08);border-bottom:1px solid rgba(196,147,122,0.2);padding:8px 40px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+.geo-item{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:0.1em;color:var(--inkMid);display:flex;align-items:center;gap:7px;text-transform:uppercase;}
+.geo-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+@media(max-width:600px){.geo-bar{padding:8px 16px;gap:14px;}}
+
+/* PROCESSUS CLIENT */
+.processus{background:var(--warm);}
+.proc-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:44px;position:relative;}
+.proc-steps::before{content:'';position:absolute;top:28px;left:0;right:0;height:1px;background:rgba(196,144,58,0.25);z-index:0;}
+.proc-step{padding:0 20px 32px;position:relative;z-index:1;text-align:center;}
+.proc-num{width:56px;height:56px;border-radius:50%;background:var(--warm);border:1px solid rgba(226,213,196,0.35);color:var(--roseL);display:flex;align-items:center;justify-content:center;font-family:'Georgia',serif;font-size:18px;margin:0 auto 18px;position:relative;z-index:2;}
+.proc-icon{position:absolute;top:-8px;right:-8px;font-size:14px;}
+.proc-title{font-family:'Georgia',serif;font-size:15px;color:var(--ink);margin-bottom:8px;}
+.proc-delay{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.proc-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkMid);line-height:1.6;}
+@media(max-width:600px){.proc-steps::before{display:none;}.proc-step{border-bottom:1px solid rgba(226,213,196,0.12);padding:24px 0;text-align:left;display:flex;gap:16px;align-items:flex-start;}.proc-num{flex-shrink:0;margin:0;width:44px;height:44px;font-size:15px;}}
+
+/* BUDGETS sur les cartes formules */
+.f-price{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--goldL);letter-spacing:0.06em;margin-bottom:6px;}
+.f-price strong{font-size:20px;font-family:'Georgia',serif;color:var(--ink);font-weight:400;}
+.f-price-note{font-size:9px;color:var(--inkL);letter-spacing:0.08em;text-transform:uppercase;}
+
+/* RÉSEAUX SOCIAUX */
+.social-links{display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;}
+.social-btn{display:inline-flex;align-items:center;gap:9px;padding:10px 20px;border:1px solid rgba(168,132,74,0.3);border-radius:4px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);transition:all .2s;}
+.social-btn:hover{border-color:var(--goldL);color:var(--goldL);}
+.social-btn-icon{font-size:15px;}
+
+/* CTA FIXE MOBILE */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;background:var(--gold);color:var(--white);padding:16px 24px;text-align:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;box-shadow:0 -4px 20px rgba(0,0,0,0.2);cursor:pointer;border:none;width:100%;}
+@media(max-width:860px){.mobile-cta{display:block;}body{padding-bottom:56px;}}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--warm);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 72px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 55%,rgba(196,147,122,0.18) 0%,transparent 58%),radial-gradient(ellipse at 72% 28%,rgba(184,149,106,0.1) 0%,transparent 52%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(196,147,122,0.12);border:1px solid rgba(196,147,122,0.35);border-radius:20px;margin-bottom:24px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--goldL);letter-spacing:0.06em;}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--sun);flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.hero-eye{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.hero-eye::before,.hero-eye::after{content:'';flex:1;max-width:36px;height:1px;background:var(--gold);opacity:.5;}
+.hero-title{font-size:clamp(32px,6vw,62px);color:var(--ink);letter-spacing:0.02em;line-height:1.1;margin-bottom:12px;font-weight:400;}
+.hero-title em{color:var(--goldL);font-style:normal;}
+.hero-caption{font-family:'Georgia',serif;font-style:italic;font-size:clamp(15px,2.2vw,19px);color:var(--inkL);margin-bottom:24px;letter-spacing:0.04em;}
+.hero-promise{background:rgba(255,255,255,0.7);border:1px solid rgba(196,144,58,0.3);border-radius:6px;padding:16px 22px;margin-bottom:28px;max-width:540px;display:flex;align-items:center;gap:14px;text-align:left;}
+.hero-promise-icon{font-size:22px;flex-shrink:0;}
+.hero-promise-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.55;}
+.hero-promise-text strong{color:var(--goldL);font-weight:600;}
+.hero-tag{padding:12px 18px;border:1px solid rgba(196,144,58,0.35);border-radius:10px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkMid);letter-spacing:0.03em;transition:all .2s;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:12px;text-align:left;}
+.hero-tag:hover{background:var(--gold);border-color:var(--gold);color:var(--white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,144,58,0.25);}
+.hero-tag-icon{font-size:22px;flex-shrink:0;}
+.hero-tag-text{display:flex;flex-direction:column;gap:2px;}
+.hero-tag-text strong{font-size:12px;font-weight:600;color:var(--ink);letter-spacing:0.03em;display:block;}
+.hero-tag-text em{font-size:10px;font-style:normal;color:var(--inkL);display:block;}
+.hero-tag:hover .hero-tag-text strong,
+.hero-tag:hover .hero-tag-text em{color:rgba(255,255,255,0.9);}
+.hero-what{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:36px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.btn-primary{padding:14px 34px;background:var(--gold);color:var(--white);border:none;border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;transition:background .2s;display:inline-block;}
+.btn-primary:hover{background:#8A6D3C;}
+.btn-ghost{padding:13px 32px;background:transparent;color:var(--inkMid);border:1px solid rgba(61,43,26,0.25);border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;transition:all .2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--inkL);display:flex;flex-direction:column;align-items:center;gap:8px;animation:bob 2.6s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+.scroll-line{width:1px;height:32px;background:rgba(196,144,58,0.4);}
+
+/* COMMUN */
+section{padding:80px 24px;}
+.si{max-width:1080px;margin:0 auto;}
+.eye{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.eye-light{color:var(--gold);}
+h2.st{font-size:clamp(24px,3.8vw,38px);color:var(--ink);line-height:1.2;margin-bottom:16px;font-weight:400;}
+h2.st em{color:var(--gold);font-style:normal;}
+h2.st.light{color:var(--ink);}
+.sub{font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;color:var(--inkMid);line-height:1.78;max-width:580px;}
+.sub.light{color:var(--inkMid);}
+.divider{width:44px;height:1px;background:var(--gold);margin:18px 0;opacity:.7;}
+.section-cta{margin-top:44px;display:flex;justify-content:center;}
+.section-cta a,.section-cta button{padding:13px 32px;background:var(--gold);color:var(--white);border:none;border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;transition:background .2s;display:inline-block;}
+.section-cta a:hover,.section-cta button:hover{background:#9A7A52;}
+
+/* POURQUOI NOUS */
+.pourquoi{background:var(--cream);}
+.pq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:40px;}
+.pq-item{padding:20px 18px;background:var(--white);border:1px solid var(--border);border-radius:6px;display:flex;align-items:flex-start;gap:13px;transition:box-shadow .2s,border-color .2s;}
+.pq-item:hover{border-color:var(--gold);box-shadow:0 4px 18px rgba(184,149,106,0.15);}
+.pq-check{width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.pq-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--ink);line-height:1.45;}
+.pq-label strong{display:block;font-weight:600;margin-bottom:2px;}
+.pq-label span{color:var(--inkL);font-size:12px;}
+
+/* VISUALISATION */
+.visu{background:var(--parch);}
+.visu-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.visu-steps{margin-top:28px;display:flex;flex-direction:column;gap:18px;}
+.v-step{display:flex;gap:16px;align-items:flex-start;}
+.v-num{width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
+.v-title{font-family:'Georgia',serif;font-size:15px;color:var(--ink);margin-bottom:3px;}
+.v-desc{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkL);line-height:1.55;}
+.visu-frames{display:flex;flex-direction:column;gap:10px;}
+.visu-frame-label{display:flex;align-items:center;gap:8px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--inkL);margin-bottom:2px;}
+.visu-frame-label::before{content:'';width:20px;height:1px;background:var(--border);}
+.visu-frame{background:var(--parch);border-radius:8px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;border:1px solid rgba(168,132,74,0.18);}
+.visu-ph{text-align:center;padding:24px;font-family:'Georgia',serif;font-style:italic;color:rgba(255,255,255,0.28);font-size:13px;line-height:1.6;}
+.visu-ph span{display:block;font-size:30px;margin-bottom:10px;}
+.visu-unique{margin-top:20px;padding:14px 18px;background:rgba(196,147,122,0.08);border:1px solid rgba(196,147,122,0.25);border-radius:5px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkMid);line-height:1.6;}
+.visu-unique strong{color:var(--gold);}
+@media(max-width:768px){.visu-split{grid-template-columns:1fr;}}
+
+/* PROMESSE (résumé valeurs) */
+.promise{background:var(--warm);}
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:44px;}
+.p-item{padding:32px 24px;background:rgba(255,255,255,0.6);border:1px solid rgba(196,144,58,0.18);border-radius:6px;transition:background .2s,box-shadow .2s;}
+.p-item:hover{background:var(--white);box-shadow:0 4px 20px rgba(196,144,58,0.12);}
+.p-icon{font-size:24px;margin-bottom:12px;}
+.p-title{font-family:'Georgia',serif;font-size:16px;color:var(--ink);margin-bottom:8px;}
+.p-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.65;}
+
+/* JOUR J */
+.jourj{background:var(--warm);}
+.jourj-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:44px;margin-bottom:40px;}
+.jp{padding:36px 28px;background:rgba(255,255,255,0.65);border:1px solid rgba(196,144,58,0.2);border-radius:6px;transition:background .2s,border-color .2s,box-shadow .2s;}
+.jp:hover{background:var(--white);border-color:var(--gold);box-shadow:0 4px 20px rgba(196,144,58,0.12);}
+.jp-num{font-family:'Georgia',serif;font-size:38px;color:rgba(226,213,196,0.2);font-style:italic;line-height:1;margin-bottom:14px;}
+.jp-icon{font-size:26px;margin-bottom:10px;}
+.jp-title{font-family:'Georgia',serif;font-size:18px;color:var(--ink);margin-bottom:6px;}
+.jp-sub{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--goldL);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+.jp-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.7;}
+.jp-tag{display:inline-block;margin-top:14px;padding:4px 12px;border:1px solid rgba(196,144,58,0.35);border-radius:12px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--gold);letter-spacing:0.06em;}
+.jourj-bundle{border:1px solid rgba(196,144,58,0.3);border-radius:8px;padding:36px 32px;background:var(--white);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.jb-title{font-family:'Georgia',serif;font-size:20px;color:var(--ink);margin-bottom:8px;}
+.jb-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.7;max-width:520px;}
+.jb-items{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.jb-item{padding:5px 12px;background:rgba(196,147,122,0.15);border-radius:12px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--roseL);}
+.jb-cta{display:flex;flex-direction:column;gap:10px;min-width:180px;}
+.jb-btn-main{padding:14px 24px;background:var(--gold);color:var(--white);border:none;border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
+.jb-btn-main:hover{background:#8A6D3C;}
+.jb-btn-sec{padding:13px 24px;background:transparent;color:var(--inkMid);border:1px solid rgba(61,43,26,0.25);border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;transition:all .2s;white-space:nowrap;}
+.jb-btn-sec:hover{border-color:var(--gold);color:var(--gold);}
+@media(max-width:768px){.jourj-bundle{grid-template-columns:1fr;}.jb-cta{flex-direction:row;flex-wrap:wrap;}}
+
+/* À PROPOS */
+.apropos{background:var(--warm);}
+.apropos-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.apropos-img{aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(226,213,196,0.2);display:flex;align-items:center;justify-content:center;position:sticky;top:84px;}
+.apropos-ph{text-align:center;padding:32px;font-family:'Georgia',serif;font-style:italic;color:var(--inkL);font-size:13px;line-height:1.6;}
+.apropos-ph span{display:block;font-size:42px;margin-bottom:12px;}
+.apropos-content .sub{max-width:100%;margin-bottom:20px;}
+.apropos-sign{font-family:'Georgia',serif;font-style:italic;font-size:22px;color:var(--goldL);margin-top:24px;}
+.apropos-soon{margin-top:24px;padding:20px 22px;border:1px dashed rgba(196,144,58,0.35);border-radius:6px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkL);line-height:1.65;font-style:italic;}
+@media(max-width:768px){.apropos-split{grid-template-columns:1fr;}.apropos-img{position:static;}}
+
+/* GALERIE */
+.galerie{background:var(--cream);}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:40px;}
+.g-item{border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:var(--parch);border:1px solid var(--border);cursor:pointer;transition:transform .22s,box-shadow .22s;position:relative;}
+.g-item:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,0.1);}
+.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(23,18,13,0.72) 0%,transparent 55%);opacity:0;transition:opacity .2s;display:flex;align-items:flex-end;padding:16px;}
+.g-item:hover .g-overlay{opacity:1;}
+.g-label{font-family:'Georgia',serif;font-style:italic;font-size:14px;color:var(--white);}
+.g-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:20px;}
+.g-ph-icon{font-size:28px;margin-bottom:8px;opacity:.35;}
+.g-ph-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkL);line-height:1.5;}
+
+/* PREUVE SOCIALE */
+.social-proof{background:var(--parch);}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:36px;}
+.sp-slot{border:2px dashed var(--border);border-radius:6px;padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:rgba(255,255,255,0.7);}
+.sp-slot-icon{font-size:26px;opacity:.35;}
+.sp-slot-title{font-family:'Georgia',serif;font-size:14px;color:var(--inkMid);}
+.sp-slot-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkL);line-height:1.5;font-style:italic;}
+
+/* FORMULES */
+.formules{background:var(--warm);}
+.formules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:40px;}
+.f-card{padding:28px 24px;border:1px solid rgba(226,213,196,0.18);border-radius:6px;background:rgba(255,255,255,0.02);transition:border-color .2s,background .2s;position:relative;}
+.f-card:hover{border-color:rgba(226,213,196,0.4);background:rgba(196,147,122,0.07);}
+.f-card.feat{border-color:var(--gold);background:var(--goldP);}
+.f-badge{position:absolute;top:-11px;left:24px;background:var(--gold);color:var(--white);font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
+.f-name{font-family:'Georgia',serif;font-size:19px;color:var(--ink);margin-bottom:4px;}
+.f-tag{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--gold);letter-spacing:0.06em;margin-bottom:18px;}
+.f-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;}
+.f-list li{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkMid);display:flex;align-items:flex-start;gap:8px;line-height:1.45;}
+.f-list li::before{content:'—';color:var(--gold);flex-shrink:0;}
+.f-cta{width:100%;padding:11px;cursor:pointer;background:transparent;color:var(--roseL);border:1px solid rgba(226,213,196,0.35);border-radius:3px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:all .2s;}
+.f-cta:hover,.f-card.feat .f-cta{background:var(--gold);border-color:var(--gold);color:var(--white);}
+
+/* BOUTON CALENDLY */
+.calendly-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 32px; background:var(--gold); color:var(--white);
+  border:none; border-radius:3px; cursor:pointer;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  font-size:13px; font-weight:600; letter-spacing:0.06em;
+  transition:background .2s; text-transform:uppercase;
+}
+.calendly-btn:hover { background:#9A7A52; }
+.calendly-btn-icon { font-size:17px; }
+.rdv-or {
+  display:flex; align-items:center; gap:16px;
+  margin:24px 0; font-family:'Helvetica Neue',Arial,sans-serif;
+  font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--inkL);
+}
+.rdv-or::before,.rdv-or::after {
+  content:''; flex:1; height:1px; background:var(--border);
+}
+.calendly-block {
+  background:var(--goldP); border:1px solid rgba(196,144,58,0.25);
+  border-radius:6px; padding:22px 22px 20px;
+  text-align:center; margin-bottom:20px;
+}
+.calendly-block-title {
+  font-family:'Georgia',serif; font-size:16px;
+  color:var(--ink); margin-bottom:6px;
+}
+.calendly-block-sub {
+  font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px;
+  color:var(--inkL); margin-bottom:16px; line-height:1.55;
+}
+
+/* RDV */
+.rdv{background:var(--parch);}
+.rdv-split{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;}
+.rdv-values{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.rdv-val{display:flex;align-items:center;gap:12px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);}
+.rdv-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:32px 28px;box-shadow:0 4px 24px rgba(92,58,34,0.08);}
+.fc-title{font-family:'Georgia',serif;font-size:19px;color:var(--ink);margin-bottom:4px;}
+.fc-sub{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkL);margin-bottom:22px;}
+.fg{margin-bottom:14px;}
+.fl{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--inkL);display:block;margin-bottom:5px;}
+.fl .req{color:var(--gold);}
+.fi,.fta{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:5px;font-size:14px;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;}
+.fi:focus,.fta:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(168,132,74,0.1);}
+.fi.err{border-color:var(--alert);}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fta{resize:none;height:80px;line-height:1.5;}
+.ferr{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--alert);margin-top:3px;display:none;}
+.ferr.on{display:block;}
+.fchips{display:flex;flex-wrap:wrap;gap:7px;}
+.fchip{padding:6px 13px;border:1.5px solid var(--border);border-radius:16px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkMid);background:var(--white);cursor:pointer;transition:all .15s;user-select:none;}
+.fchip:active{transform:scale(0.96);}
+.fchip.on{background:var(--gold);border-color:var(--gold);color:var(--white);font-weight:600;}
+.fsub{width:100%;padding:15px;background:var(--gold);color:var(--white);border:none;border-radius:5px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:0.05em;transition:background .2s;margin-top:8px;}
+.fsub:hover{background:#8A6D3C;}
+.frgpd{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--inkL);line-height:1.5;margin-top:10px;text-align:center;}
+.fload{display:none;align-items:center;justify-content:center;gap:8px;padding:14px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkL);}
+.fload.on{display:flex;}
+.spinner{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);border-top-color:var(--gold);animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fok{display:none;text-align:center;padding:24px 0;}
+.fok.on{display:block;}
+.fok-icon{font-size:38px;margin-bottom:12px;}
+.fok-title{font-family:'Georgia',serif;font-size:18px;color:var(--ink);margin-bottom:8px;}
+.fok-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.65;}
+@media(max-width:768px){.rdv-split{grid-template-columns:1fr;}.f2{grid-template-columns:1fr;}}
+
+/* FAQ */
+.faq{background:var(--cream);}
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:36px;max-width:760px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-family:'Georgia',serif;font-size:15px;color:var(--ink);user-select:none;gap:16px;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;color:var(--gold);flex-shrink:0;transition:transform .2s,background .2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);color:var(--white);border-color:var(--gold);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--inkMid);line-height:1.75;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px;}
+
+/* À PROPOS ENRICHI */
+.apropos-quote{font-family:'Georgia',serif;font-style:italic;font-size:clamp(18px,3vw,26px);color:var(--gold);line-height:1.4;margin:28px 0;padding-left:20px;border-left:2px solid rgba(196,144,58,0.5);}
+.apropos-block{margin-bottom:22px;}
+.apropos-block-title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.apropos-highlight{background:rgba(196,144,58,0.06);border:1px solid rgba(196,144,58,0.2);border-radius:6px;padding:20px 22px;margin:24px 0;font-family:'Georgia',serif;font-style:italic;font-size:15px;color:var(--inkMid);line-height:1.7;}
+.apropos-cta-block{margin-top:32px;padding:24px;background:rgba(196,144,58,0.07);border:1px solid rgba(196,144,58,0.2);border-radius:6px;}
+.apropos-cta-title{font-family:'Georgia',serif;font-size:17px;color:var(--ink);margin-bottom:8px;}
+.apropos-cta-text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);line-height:1.65;margin-bottom:16px;}
+.apropos-btn{display:inline-block;padding:12px 28px;background:var(--gold);color:var(--white);border-radius:3px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;}
+.apropos-btn:hover{background:#9A7A52;}
+
+/* SÉLECTEUR PRESTATIONS */
+.presta-selector{margin-top:48px;}
+.presta-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:24px;}
+.presta-col{border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s;background:var(--white);user-select:none;}
+.presta-col:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(196,144,58,0.12);}
+.presta-col.selected{border-color:var(--gold);background:rgba(184,149,106,0.07);}
+.presta-col-header{padding:20px 20px 16px;border-bottom:1px solid rgba(168,132,74,0.1);position:relative;}
+.presta-col.selected .presta-col-header{border-bottom-color:rgba(168,132,74,0.25);}
+.presta-check{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(196,147,122,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .2s;background:transparent;}
+.presta-col.selected .presta-check{background:var(--gold);border-color:var(--gold);color:var(--white);}
+.presta-col-icon{font-size:24px;margin-bottom:10px;}
+.presta-col-title{font-family:'Georgia',serif;font-size:17px;color:var(--ink);margin-bottom:4px;}
+.presta-col-tagline{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--goldL);letter-spacing:0.08em;text-transform:uppercase;}
+.presta-col-body{padding:16px 20px;}
+.presta-tier{padding:10px 0;border-bottom:1px solid rgba(168,132,74,0.08);}
+.presta-tier:last-child{border-bottom:none;}
+.presta-tier-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+.presta-tier-name{font-family:'Georgia',serif;font-size:13px;color:var(--ink);}
+.presta-tier-price{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--goldL);font-weight:600;white-space:nowrap;}
+.presta-tier-desc{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkL);line-height:1.45;}
+/* Sous-sélecteur de niveau */
+.presta-level-select{display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(168,132,74,0.15);}
+.presta-col.selected .presta-level-select{display:block;}
+.presta-level-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.presta-level-opts{display:flex;flex-direction:column;gap:6px;}
+.presta-level-opt{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid rgba(168,132,74,0.15);border-radius:4px;cursor:pointer;transition:all .15s;}
+.presta-level-opt:hover{border-color:rgba(168,132,74,0.35);}
+.presta-level-opt.active{border-color:var(--gold);background:rgba(168,132,74,0.08);}
+.presta-level-opt input[type=radio]{accent-color:var(--gold);flex-shrink:0;}
+.presta-level-opt-info{flex:1;}
+.presta-level-opt-name{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--ink);}
+.presta-level-opt-price{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--gold);}
+/* Récap & total */
+.presta-recap{border:1px solid rgba(184,149,106,0.3);border-radius:6px;padding:20px 24px;background:rgba(184,149,106,0.05);display:none;}
+.presta-recap.visible{display:block;}
+.presta-recap-title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.presta-recap-lines{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.presta-recap-line{display:flex;justify-content:space-between;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkMid);}
+.presta-recap-line span:last-child{color:var(--goldL);}
+.presta-recap-divider{height:1px;background:rgba(168,132,74,0.2);margin:12px 0;}
+.presta-recap-total{display:flex;justify-content:space-between;align-items:baseline;}
+.presta-recap-total-label{font-family:'Georgia',serif;font-size:15px;color:var(--ink);}
+.presta-recap-total-price{font-family:'Georgia',serif;font-size:22px;color:var(--gold);}
+.presta-recap-note{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--inkL);margin-top:8px;}
+.presta-bundle-badge{display:inline-block;padding:3px 10px;background:rgba(196,147,122,0.15);border-radius:12px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--rose);margin-top:8px;}
+.presta-cta-row{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+.presta-cta-main{flex:1;padding:13px;background:var(--gold);color:var(--white);border:none;border-radius:3px;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:background .2s;min-width:160px;}
+.presta-cta-main:hover{background:#8A6D3C;}
+@media(max-width:768px){.presta-cols{grid-template-columns:1fr;gap:8px;}.presta-cta-row{flex-direction:column;}}
+
+/* FOOTER */
+.footer{background:var(--parch);padding:48px 24px 32px;text-align:center;}
+.ft-logo{font-family:'Georgia',serif;font-size:20px;color:var(--ink);letter-spacing:0.05em;margin-bottom:6px;}
+.ft-logo em{color:var(--goldL);font-style:normal;}
+.ft-tag{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:var(--inkL);letter-spacing:0.1em;margin-bottom:24px;}
+.ft-social{display:flex;justify-content:center;gap:22px;margin-bottom:24px;}
+.ft-social a{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--inkL);transition:color .2s;display:flex;align-items:center;gap:6px;}
+.ft-social a:hover{color:var(--goldL);}
+.ft-div{width:40px;height:1px;background:rgba(196,144,58,0.4);margin:0 auto 18px;}
+.ft-legal{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--inkL);letter-spacing:0.06em;}
+</style>
+<!-- Calendly popup -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
+</head>
+<body>
+
+<!-- CTA FIXE MOBILE -->
+<button class="mobile-cta" onclick="openCalendly()">
+  🗓 Choisir mon créneau — Gratuit &amp; sans engagement
+</button>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">L'Atelier <em>d'Holrï</em></div>
+  <ul class="nav-links">
+    <li><a href="#pourquoi">Pourquoi nous</a></li>
+    <li><a href="#visu">Visualisation 3D</a></li>
+    <li><a href="#jourj">Jour J</a></li>
+    <li><a href="#processus">Démarche</a></li>
+    <li><a href="#formules">Formules</a></li>
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#rdv">Contact</a></li>
+  </ul>
+  <a href="#rdv" class="nav-cta">Prendre rendez-vous</a>
+  <div class="burger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- BARRE GÉOGRAPHIQUE -->
+<div class="geo-bar" style="position:fixed;top:64px;left:0;right:0;z-index:199;">
+  <div class="geo-item"><div class="geo-dot"></div>Basé à Naves, Corrèze (19)</div>
+  <div class="geo-item"><div class="geo-dot"></div>Corrèze &amp; Nouvelle-Aquitaine</div>
+  <div class="geo-item"><div class="geo-dot"></div>Interventions sur toute la France</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    Concept unique · Visualisation 3D avant fabrication
+  </div>
+  <div class="hero-eye">L'Atelier d'Holrï · Créations sur mesure</div>
+  <h1 class="hero-title">
+    De la décoration à la cérémonie —<br><em>tout à votre image.</em>
+  </h1>
+  <p class="hero-caption">Un seul artisan. Un mariage entièrement à votre image.</p>
+  <div class="hero-what">
+    <a href="#visu" class="hero-tag">
+      <span class="hero-tag-icon">🎨</span>
+      <span class="hero-tag-text"><strong>Décoration & Visualisation 3D</strong><em>Conçue, modélisée, validée avant fabrication</em></span>
+    </a>
+    <a href="#jourj" class="hero-tag">
+      <span class="hero-tag-icon">🎙</span>
+      <span class="hero-tag-text"><strong>Officiant de cérémonie</strong><em>Une cérémonie laïque sur mesure</em></span>
+    </a>
+    <a href="#jourj" class="hero-tag">
+      <span class="hero-tag-icon">🗂</span>
+      <span class="hero-tag-text"><strong>Coordination Jour J</strong><em>Vous profitez. Je gère.</em></span>
+    </a>
+  </div>
+  <div class="hero-btns">
+    <button class="btn-primary calendly-btn" onclick="openCalendly()" style="display:inline-flex;align-items:center;gap:9px;">
+      <span>🗓</span> Choisir mon créneau
+    </button>
+    <a href="#visu" class="btn-ghost">Découvrir la visualisation 3D</a>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Découvrir</div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section class="pourquoi" id="pourquoi">
+  <div class="si">
+    <div class="eye">Ce qui me distingue</div>
+    <h2 class="st">Pourquoi me choisir,<br><em>moi ?</em></h2>
+    <div class="divider"></div>
+    <p class="sub">Voici ce que je vous offre — et que vous ne trouverez pas ailleurs réuni en une seule personne.</p>
+    <div class="pq-grid">
+      <div class="pq-item">
+        <div class="pq-check">✓</div>
+        <div class="pq-label"><strong>Décoration sur mesure & Fabrication artisanale</strong><span>Je conçois, je modélise en 3D, vous validez — puis je fabrique chaque pièce à la main, uniquement pour vous.</span></div>
+      </div>
+      <div class="pq-item">
+        <div class="pq-check">✓</div>
+        <div class="pq-label"><strong>Officiant de cérémonie laïque</strong><span>Une parole maîtrisée et émouvante, construite entièrement autour de votre couple.</span></div>
+      </div>
+      <div class="pq-item">
+        <div class="pq-check">✓</div>
+        <div class="pq-label"><strong>Coordination Jour J</strong><span>Vous profitez pleinement. Je gère le timing, les prestataires et les imprévus.</span></div>
+      </div>
+      <div class="pq-item">
+        <div class="pq-check">✓</div>
+        <div class="pq-label"><strong>Un seul interlocuteur</strong><span>De la première idée au dernier instant — une vision cohérente, sans coordination à gérer.</span></div>
+      </div>
+      <div class="pq-item">
+        <div class="pq-check">✓</div>
+        <div class="pq-label"><strong>Accompagnement de A à Z</strong><span>Conception, ajustements, livraison, installation — je suis présent à chaque étape.</span></div>
+      </div>
+    </div>
+    <div class="section-cta"><a href="#rdv">Parlons de votre projet →</a></div>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="visu" id="visu">
+  <div class="si">
+
+    <!-- DÉCORATION & 3D -->
+    <div class="visu-split" style="margin-top:16px;">
+      <div>
+        <div class="eye">Décoration & Visualisation 3D</div>
+        <h2 class="st">Vous voyez votre mariage<br><em>avant le grand jour.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Avant toute fabrication, vous recevez une modélisation 3D réaliste de votre décoration. Vous imaginez, vous ajustez, vous validez — puis je fabrique chaque pièce à la main. Centres de table, chevalets, vases décoratifs, compositions florales, figurines — chaque élément pensé pour votre mariage uniquement.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step">
+            <div class="v-num">1</div>
+            <div>
+              <div class="v-title">Vous partagez votre vision</div>
+              <div class="v-desc">Ambiance, couleurs, style, nombre de tables — chaque détail qui vous tient à cœur est noté.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">2</div>
+            <div>
+              <div class="v-title">Vous recevez votre rendu 3D</div>
+              <div class="v-desc">Une visualisation réaliste de vos créations. Vous ajustez, vous affinez — jusqu'à ce que ce soit parfait.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">3</div>
+            <div>
+              <div class="v-title">Vous validez — je fabrique</div>
+              <div class="v-desc">Seulement après votre accord, chaque pièce est créée à la main avec soin. Livraison ou installation selon votre choix.</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
+          <a href="#formules">Voir les formules décoration →</a>
+        </div>
+      </div>
+      <div class="visu-frames">
+        <div class="visu-frame-label">Avant — Vos inspirations</div>
+        <div class="visu-frame">
+          <div class="visu-ph"><span>✏️</span>Vos idées &amp; références<br><em style="font-size:11px;opacity:.5;">Moodboard / inspirations</em></div>
+        </div>
+        <div class="visu-frame-label">Après — Votre rendu 3D personnalisé</div>
+        <div class="visu-frame">
+          <div class="visu-ph"><span>🖼</span>Modélisation 3D réaliste<br><em style="font-size:11px;opacity:.5;">Votre rendu ici</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÉPARATEUR -->
+    <div style="height:1px;background:var(--border);margin:64px 0;"></div>
+
+    <!-- OFFICIANT -->
+    <div class="visu-split">
+      <div>
+        <div class="eye">Officiant de cérémonie laïque</div>
+        <h2 class="st">Une cérémonie construite<br><em>autour de votre histoire.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Vous méritez une cérémonie qui vous émeut vraiment. Je rédige chaque discours à partir de ce que vous êtes, de ce que vous vivez ensemble — avec une éloquence maîtrisée et une présence qui met votre couple en lumière. Je m'habille dans le thème de votre mariage pour une cohérence visuelle totale.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step">
+            <div class="v-num">1</div>
+            <div>
+              <div class="v-title">On raconte votre histoire</div>
+              <div class="v-desc">Un échange approfondi pour comprendre ce qui vous unit, vos valeurs, vos anecdotes, ce qui vous émeut.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">2</div>
+            <div>
+              <div class="v-title">Je rédige votre cérémonie</div>
+              <div class="v-desc">Un discours sur mesure, relu et ajusté jusqu'à ce que chaque mot vous ressemble.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">3</div>
+            <div>
+              <div class="v-title">Je l'anime le Jour J</div>
+              <div class="v-desc">Répétition, calage du timing, puis présence totale le grand jour — pour que chaque instant soit parfait.</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
+          <a href="#formules">Voir les formules cérémonie →</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div class="visu-frame" style="width:100%;aspect-ratio:3/4;">
+          <div class="visu-ph"><span>🎙</span>Photo ou vidéo de cérémonie<br><em style="font-size:11px;opacity:.5;">À ajouter prochainement</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÉPARATEUR -->
+    <div style="height:1px;background:var(--border);margin:64px 0;"></div>
+
+    <!-- COORDINATION -->
+    <div class="visu-split">
+      <div>
+        <div class="eye">Coordination Jour J</div>
+        <h2 class="st">Vous profitez de chaque instant.<br><em>Je coordonne tout le reste.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Vous avez imaginé ce jour depuis longtemps. Le Jour J, vous êtes là pour le vivre — pas pour gérer. Je prends en main le rétroplanning, les prestataires, les imprévus — en coulisses, sans que vous n'ayez à vous en préoccuper.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step">
+            <div class="v-num">1</div>
+            <div>
+              <div class="v-title">Rétroplanning détaillé</div>
+              <div class="v-desc">Je prépare chaque minute de votre journée — de l'arrivée des prestataires au dernier slow.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">2</div>
+            <div>
+              <div class="v-title">Liaison avec les prestataires</div>
+              <div class="v-desc">Je suis leur interlocuteur unique le Jour J — plus aucun appel, plus aucune question ne vous parvient.</div>
+            </div>
+          </div>
+          <div class="v-step">
+            <div class="v-num">3</div>
+            <div>
+              <div class="v-title">Gestion des imprévus</div>
+              <div class="v-desc">Retard, imprévu de dernière minute — je gère en coulisses. Vous, vous souriez.</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
+          <a href="#formules">Voir les formules coordination →</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div class="visu-frame" style="width:100%;aspect-ratio:3/4;">
+          <div class="visu-ph"><span>🗂</span>Photo de coordination Jour J<br><em style="font-size:11px;opacity:.5;">À ajouter prochainement</em></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOUR J -->
+<section class="jourj" id="jourj">
+  <div class="si">
+    <div class="eye eye-light">L'offre complète</div>
+    <h2 class="st light">Un seul artisan.<br><em>Un Jour J sans faille.</em></h2>
+    <div class="divider"></div>
+    <p class="sub light">Vous rêvez d'une journée parfaitement orchestrée, sans avoir à vous soucier de quoi que ce soit. Trois expertises réunies autour d'une seule vision — la vôtre.</p>
+    <div class="jourj-pillars">
+      <div class="jp">
+        <div class="jp-num">01</div>
+        <div class="jp-icon">🎨</div>
+        <div class="jp-title">Décoration sur mesure</div>
+        <div class="jp-sub">Ma spécialité</div>
+        <div class="jp-text">Vous imaginez une table qui vous ressemble. Je la modélise en 3D, vous la validez, je la crée. Des centres de table aux figurines de couple, chaque pièce est pensée pour votre mariage uniquement.</div>
+        <span class="jp-tag">Devis séparé disponible</span>
+      </div>
+      <div class="jp">
+        <div class="jp-num">02</div>
+        <div class="jp-icon">🎙</div>
+        <div class="jp-title">Officiant de cérémonie laïque</div>
+        <div class="jp-sub">L'art de la parole juste</div>
+        <div class="jp-text">Vous méritez une cérémonie qui vous émeut vraiment. Je construis chaque discours autour de votre histoire, avec une éloquence maîtrisée et une présence qui met votre couple en lumière.</div>
+        <span class="jp-tag">Devis séparé disponible</span>
+      </div>
+      <div class="jp">
+        <div class="jp-num">03</div>
+        <div class="jp-icon">🗂</div>
+        <div class="jp-title">Coordination Jour J</div>
+        <div class="jp-sub">Vous profitez. Je coordonne.</div>
+        <div class="jp-text">Vous avez imaginé ce jour depuis longtemps. Le Jour J, vous profitez de chaque instant — je gère le timing, les prestataires et les imprévus en coulisses, pour que tout se déroule à la perfection.</div>
+        <span class="jp-tag">Devis séparé disponible</span>
+      </div>
+    </div>
+    <div class="jourj-bundle">
+      <div>
+        <div class="jb-title">L'expérience complète — <em style="color:var(--goldL);font-style:normal;">Jour J Intégral</em></div>
+        <div class="jb-text">Vous rêvez d'un mariage cohérent, fluide, inoubliable — sans coordonner plusieurs prestataires. Un seul interlocuteur, une seule vision, du premier échange au dernier instant. Et un seul déplacement facturé — là où trois prestataires séparés vous factureraient chacun leurs frais kilométriques.</div>
+        <div class="jb-items">
+          <span class="jb-item">✦ Décoration sur mesure</span>
+          <span class="jb-item">🎙 Cérémonie laïque</span>
+          <span class="jb-item">🗂 Coordination Jour J</span>
+        </div>
+      </div>
+      <div class="jb-cta">
+        <button class="jb-btn-main" onclick="scrollRdv('Jour J Intégral')">Découvrir le bundle</button>
+        <button class="jb-btn-sec" onclick="scrollRdv('Prestation seule')">Prestation seule</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS CLIENT -->
+<section class="processus" id="processus">
+  <div class="si">
+    <div class="eye eye-light">Comment ça se passe</div>
+    <h2 class="st light">De votre premier message<br><em>au dernier instant.</em></h2>
+    <div class="divider"></div>
+    <p class="sub light">Un accompagnement clair, sans surprise, structuré autour de vous. Voici exactement ce qui se passe après votre prise de contact.</p>
+    <div class="proc-steps">
+      <div class="proc-step">
+        <div class="proc-num">1<span class="proc-icon">✉</span></div>
+        <div class="proc-delay">Jour 1</div>
+        <div class="proc-title">Vous prenez contact</div>
+        <div class="proc-text">Formulaire, Instagram ou email. Je vous réponds personnellement sous 48h pour convenir d'un appel découverte.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">2<span class="proc-icon">📞</span></div>
+        <div class="proc-delay">Semaine 1</div>
+        <div class="proc-title">Appel découverte gratuit</div>
+        <div class="proc-text">20 à 30 minutes pour échanger sur votre vision, vos envies, votre style. Aucun engagement. On explore ensemble ce qui est possible.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">3<span class="proc-icon">📋</span></div>
+        <div class="proc-delay">Semaine 1-2</div>
+        <div class="proc-title">Devis personnalisé</div>
+        <div class="proc-text">Je vous adresse un devis détaillé, adapté à votre projet. Vous prenez le temps de réfléchir — sans pression de ma part.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">4<span class="proc-icon">🖼</span></div>
+        <div class="proc-delay">Après signature</div>
+        <div class="proc-title">Visualisation 3D</div>
+        <div class="proc-text">Je modélise votre décoration. Vous recevez un rendu réaliste, vous ajustez librement jusqu'à ce que ce soit parfait. Rien n'est fabriqué sans votre validation.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">5<span class="proc-icon">🛠</span></div>
+        <div class="proc-delay">Selon calendrier</div>
+        <div class="proc-title">Fabrication artisanale</div>
+        <div class="proc-text">Une fois validé, je fabrique chaque pièce avec soin. Vous êtes informé de l'avancement et pouvez suivre la création de vos décors.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">6<span class="proc-icon">✨</span></div>
+        <div class="proc-delay">Votre Jour J</div>
+        <div class="proc-title">Livraison &amp; installation</div>
+        <div class="proc-text">Livraison soigneuse ou installation sur site selon votre formule. Le Jour J, vous profitez — je m'occupe du reste.</div>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="#rdv">Démarrer mon projet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULES -->
+<section class="formules" id="formules">
+  <div class="si">
+    <div class="eye eye-light">Formules</div>
+    <h2 class="st light">Composez votre mariage<br><em>à votre mesure.</em></h2>
+    <div class="divider"></div>
+    <p class="sub light">Sélectionnez une, deux ou trois catégories selon vos besoins. Les tarifs s'affichent en temps réel — le devis final est établi après notre échange.</p>
+
+    <div class="presta-selector">
+      <div class="presta-cols">
+
+        <!-- COLONNE 1 — DÉCORATION -->
+        <div class="presta-col" id="col-deco" onclick="toggleCol('deco')">
+          <div class="presta-col-header">
+            <div class="presta-check">✓</div>
+            <div class="presta-col-icon">🎨</div>
+            <div class="presta-col-title">Décoration</div>
+            <div class="presta-col-tagline">Sur mesure · Visualisation 3D</div>
+          </div>
+          <div class="presta-col-body">
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">890€</span></div>
+              <div class="presta-tier-desc">Centres de table, porte-noms, visualisation 3D — jusqu'à 8 tables.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Signature</span><span class="presta-tier-price">1 490€</span></div>
+              <div class="presta-tier-desc">+ figurine couple, bouquet sur mesure, livre d'or, livraison.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">À partir de 2 000€</span></div>
+              <div class="presta-tier-desc">Conception libre, décoration complète, installation sur site.</div>
+            </div>
+            <div class="presta-level-select" onclick="event.stopPropagation()">
+              <div class="presta-level-label">Choisir un niveau</div>
+              <div class="presta-level-opts">
+                <label class="presta-level-opt" onclick="selectLevel('deco','Essentielle',890,this)">
+                  <input type="radio" name="level-deco" value="890">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">890€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('deco','Signature',1490,this)">
+                  <input type="radio" name="level-deco" value="1490">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature</div><div class="presta-level-opt-price">1 490€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('deco','Sur mesure',2000,this)">
+                  <input type="radio" name="level-deco" value="2000">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">À partir de 2 000€</div></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLONNE 2 — CÉRÉMONIE -->
+        <div class="presta-col" id="col-ceremonie" onclick="toggleCol('ceremonie')">
+          <div class="presta-col-header">
+            <div class="presta-check">✓</div>
+            <div class="presta-col-icon">🎙</div>
+            <div class="presta-col-title">Cérémonie laïque</div>
+            <div class="presta-col-tagline">Officiant · Éloquence · Émotion</div>
+          </div>
+          <div class="presta-col-body">
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Voix de cérémonie</span><span class="presta-tier-price">390€</span></div>
+              <div class="presta-tier-desc">Lecture des vœux, poèmes et textes — une voix maîtrisée pour vos mots.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">590€</span></div>
+              <div class="presta-tier-desc">Cérémonie personnalisée complète — rédaction, répétition, animation.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Avec accessoires</span><span class="presta-tier-price">790€</span></div>
+              <div class="presta-tier-desc">+ accessoires 3D personnalisés et livret de cérémonie sur mesure.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Signature cérémonie</span><span class="presta-tier-price">À partir de 990€</span></div>
+              <div class="presta-tier-desc">+ décoration de cérémonie, créations 3D scénographiques, coordination.</div>
+            </div>
+            <div class="presta-level-select" onclick="event.stopPropagation()">
+              <div class="presta-level-label">Choisir un niveau</div>
+              <div class="presta-level-opts">
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Voix de cérémonie',390,this)">
+                  <input type="radio" name="level-ceremonie" value="390">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Voix de cérémonie</div><div class="presta-level-opt-price">390€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Essentielle',590,this)">
+                  <input type="radio" name="level-ceremonie" value="590">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">590€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Avec accessoires',790,this)">
+                  <input type="radio" name="level-ceremonie" value="790">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Avec accessoires</div><div class="presta-level-opt-price">790€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Signature cérémonie',990,this)">
+                  <input type="radio" name="level-ceremonie" value="990">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature cérémonie</div><div class="presta-level-opt-price">À partir de 990€</div></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLONNE 3 — COORDINATION -->
+        <div class="presta-col" id="col-coordination" onclick="toggleCol('coordination')">
+          <div class="presta-col-header">
+            <div class="presta-check">✓</div>
+            <div class="presta-col-icon">🗂</div>
+            <div class="presta-col-title">Coordination</div>
+            <div class="presta-col-tagline">Jour J · Sérénité · Zéro friction</div>
+          </div>
+          <div class="presta-col-body">
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Coordination Jour J</span><span class="presta-tier-price">1 200€</span></div>
+              <div class="presta-tier-desc">Rétroplanning, liaison prestataires, présence et gestion le Jour J.</div>
+            </div>
+            <div class="presta-tier">
+              <div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">Sur devis</span></div>
+              <div class="presta-tier-desc">Coordination étendue, suivi personnalisé, accompagnement renforcé.</div>
+            </div>
+            <div class="presta-level-select" onclick="event.stopPropagation()">
+              <div class="presta-level-label">Choisir un niveau</div>
+              <div class="presta-level-opts">
+                <label class="presta-level-opt" onclick="selectLevel('coordination','Coordination Jour J',1200,this)">
+                  <input type="radio" name="level-coordination" value="1200">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Coordination Jour J</div><div class="presta-level-opt-price">1 200€</div></div>
+                </label>
+                <label class="presta-level-opt" onclick="selectLevel('coordination','Sur mesure',0,this)">
+                  <input type="radio" name="level-coordination" value="0">
+                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">Sur devis</div></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RÉCAP DYNAMIQUE -->
+      <div class="presta-recap" id="presta-recap">
+        <div class="presta-recap-title">Votre sélection</div>
+        <div class="presta-recap-lines" id="recap-lines"></div>
+        <div class="presta-recap-divider"></div>
+        <div class="presta-recap-total">
+          <div class="presta-recap-total-label">Estimation totale</div>
+          <div class="presta-recap-total-price" id="recap-total">—</div>
+        </div>
+        <div id="recap-bundle" style="display:none;">
+          <div class="presta-bundle-badge">✦ Bundle 3 prestations — tarif préférentiel appliqué au devis</div>
+        </div>
+        <div class="presta-recap-note">Tarifs indicatifs · Le devis définitif est établi après notre échange découverte.</div>
+        <div class="presta-cta-row">
+          <button class="presta-cta-main" onclick="sendToForm()">Demander mon devis →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section class="apropos" id="apropos">
+  <div class="si">
+    <div class="apropos-split">
+      <div class="apropos-img">
+        <div class="apropos-ph">
+          <span>🧑‍🎨</span>
+          Portrait du créateur<br>
+          <em style="font-size:11px;">Votre photo ici</em>
+        </div>
+      </div>
+      <div class="apropos-content">
+        <div class="eye eye-light">Le créateur</div>
+        <h2 class="st">L'humain<br><em>avant tout.</em></h2>
+        <div class="divider"></div>
+
+        <div class="apropos-block">
+          <p class="sub">Derrière chaque création, chaque cérémonie, chaque détail imaginé et chaque moment partagé, il y a moi : <strong style="color:var(--ink);">Justin.</strong></p>
+          <p class="sub" style="margin-top:12px;">Si vous me croisez, vous découvrirez un grand gaillard toujours le sourire aux lèvres, l'esprit en ébullition et les baskets prêtes à partir à l'aventure. Je suis de ceux qui pensent que la vie, comme les plus beaux projets, mérite d'être vécue pleinement — en osant suivre les idées les plus folles.</p>
+        </div>
+
+        <div class="apropos-block" style="margin-top:28px;">
+          <div class="apropos-block-title">Pourquoi je fais ce que je fais</div>
+          <p class="sub">Pour moi, créer ne se résume pas à fabriquer un objet, organiser une journée ou célébrer une cérémonie.</p>
+          <div class="apropos-quote">Créer, c'est raconter une histoire.<br>La vôtre.</div>
+          <p class="sub">À travers une décoration sur mesure, une cérémonie laïque pleine d'émotion ou l'organisation de votre mariage, mon objectif reste toujours le même : transformer vos idées, vos souvenirs et votre personnalité en une expérience qui vous ressemble.</p>
+        </div>
+
+        <div class="apropos-highlight">
+          Dans L'Atelier d'Holrï, il n'y a pas de catalogue, pas de solutions toutes faites, ni de projets reproduits à l'identique. Il y a avant tout vous — votre histoire, vos envies, et cette volonté de créer quelque chose qui ne ressemble à personne d'autre.
+        </div>
+
+        <div class="apropos-block">
+          <div class="apropos-block-title">Ma conviction</div>
+          <p class="sub">Parce qu'au fond, ma plus belle création n'est ni un objet, ni une décoration, ni même une cérémonie.</p>
+          <p class="sub" style="margin-top:10px;"><em style="color:var(--gold);">C'est l'émotion qu'ils font naître.</em></p>
+        </div>
+
+        <div class="apropos-block" style="margin-top:28px;">
+          <div class="apropos-block-title">L'impossible n'est jamais une réponse</div>
+          <p class="sub">Vous avez une idée audacieuse ? Un rêve un peu fou ? Une envie que l'on vous a déjà dite irréalisable ?<br><strong style="color:var(--gold);">Alors nous partons déjà sur de bonnes bases.</strong></p>
+          <p class="sub" style="margin-top:12px;">Dans mon atelier, l'impossible n'est pas envisageable — il devient un défi, une source d'inspiration, le point de départ d'une nouvelle aventure. S'il faut imaginer, dessiner, façonner, tester ou repousser les limites pour que vous puissiez dire le jour venu : <em style="color:var(--inkMid);">« C'est exactement nous. »</em> — alors je le ferai avec la même implication que si ce projet était le mien.</p>
+        </div>
+
+        <div class="apropos-cta-block">
+          <div class="apropos-cta-title">On écrit la suite ensemble ?</div>
+          <div class="apropos-cta-text">Si vous cherchez simplement un prestataire, je ne suis peut-être pas la bonne personne. En revanche, si vous cherchez quelqu'un capable de vous écouter, de comprendre votre histoire et de donner vie à vos idées — alors j'ai hâte de faire votre rencontre.</div>
+          <button class="apropos-btn" onclick="document.getElementById('rdv').scrollIntoView({behavior:'smooth'})">Commençons cette aventure →</button>
+        </div>
+
+        <div class="apropos-sign">Justin — Holrï</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="galerie" id="galerie">
+  <div class="si">
+    <div class="eye">Réalisations</div>
+    <h2 class="st">Chaque pièce raconte<br><em>une histoire unique.</em></h2>
+    <div class="divider"></div>
+    <p class="sub">Des créations conçues sur mesure pour des couples qui souhaitaient un mariage entièrement à leur image. Les photos des premières réalisations seront ajoutées prochainement.</p>
+    <div class="gallery">
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">💐</div><div class="g-ph-text">Centres de table floraux<br>sur mesure</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🧍</div><div class="g-ph-text">Figurines de couple<br>personnalisées</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">✨</div><div class="g-ph-text">Table de réception<br>complète</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🌸</div><div class="g-ph-text">Bouquet de mariée<br>sur mesure</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">📖</div><div class="g-ph-text">Livre d'or<br>personnalisé</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🥂</div><div class="g-ph-text">Porte-noms &amp; marque-places<br>exclusifs</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVE SOCIALE -->
+<section class="social-proof" id="temoignages">
+  <div class="si">
+    <div class="eye">Ils me font confiance</div>
+    <h2 class="st">Les premières histoires<br><em>s'écrivent en ce moment.</em></h2>
+    <div class="divider"></div>
+
+    <!-- Message premium d'attente -->
+    <div style="max-width:680px;margin:0 auto;text-align:center;padding:48px 32px;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 24px rgba(196,144,58,0.08);">
+      <div style="font-size:36px;margin-bottom:20px;">✦</div>
+      <p style="font-family:'Georgia',serif;font-style:italic;font-size:clamp(17px,2.5vw,22px);color:var(--ink);line-height:1.5;margin-bottom:16px;">
+        "Les premiers mariages de la saison sont en cours.<br>
+        Chaque histoire mérite d'être racontée avec soin —<br>
+        les témoignages de nos couples seront publiés ici<br>
+        dès leur retour de voyage de noces."
+      </p>
+      <div style="width:40px;height:1px;background:var(--gold);margin:20px auto;opacity:.6;"></div>
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkL);line-height:1.7;">
+        En attendant, vous pouvez suivre les coulisses des créations en cours,<br>
+        les préparatifs et les premières réalisations sur Instagram.
+      </p>
+      <div style="margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a class="social-btn" href="INSTAGRAM_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📷</span>Suivre sur Instagram</a>
+        <a class="social-btn" href="FACEBOOK_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📘</span>Suivre sur Facebook</a>
+      </div>
+    </div>
+
+    <!-- Emplacements futurs discrets -->
+    <div class="sp-grid" style="margin-top:32px;">
+      <div class="sp-slot">
+        <div class="sp-slot-icon">⭐</div>
+        <div class="sp-slot-title">Avis Google</div>
+        <div class="sp-slot-text">À venir après les premiers mariages.</div>
+      </div>
+      <div class="sp-slot">
+        <div class="sp-slot-icon">💬</div>
+        <div class="sp-slot-title">Témoignages</div>
+        <div class="sp-slot-text">Les mots de nos couples, bientôt ici.</div>
+      </div>
+      <div class="sp-slot">
+        <div class="sp-slot-icon">📸</div>
+        <div class="sp-slot-title">Photos & coulisses</div>
+        <div class="sp-slot-text">Réalisations et avant/après à venir.</div>
+      </div>
+      <div class="sp-slot">
+        <div class="sp-slot-icon">🎬</div>
+        <div class="sp-slot-title">Vidéos</div>
+        <div class="sp-slot-text">Extraits de cérémonies et moments forts.</div>
+      </div>
+    </div>
+
+    <div class="section-cta" style="margin-top:32px;">
+      <a href="#rdv">Être parmi les premiers — Réserver mon appel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RDV DÉCOUVERTE -->
+<section class="rdv" id="rdv">
+  <div class="si">
+    <div class="rdv-split">
+      <div>
+        <div class="eye">Rendez-vous découverte</div>
+        <h2 class="st">Un échange gratuit<br><em>pour donner vie à vos idées.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Vous avez une vision — même floue. Un appel de 20 à 30 minutes suffit pour explorer ensemble comment la concrétiser. Sans engagement. Sans pression. Juste une conversation.</p>
+        <div class="rdv-values">
+          <div class="rdv-val"><div class="rdv-dot"></div>Appel découverte gratuit &amp; sans engagement</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Réponse personnelle sous 48 heures</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Visualisation 3D offerte avant toute fabrication</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Devis personnalisé après échange</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Accompagnement du début à la fin</div>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <!-- BLOC CALENDLY -->
+          <div class="calendly-block">
+            <div class="calendly-block-title">📅 Choisissez votre créneau en autonomie</div>
+            <div class="calendly-block-sub">Sélectionnez directement un horaire qui vous convient — l'appel découverte dure 20 à 30 minutes.</div>
+            <button class="calendly-btn" onclick="openCalendly()">
+              <span class="calendly-btn-icon">🗓</span>
+              Réserver mon créneau
+            </button>
+          </div>
+          <div class="rdv-or">ou remplissez le formulaire</div>
+          <!-- FIN BLOC CALENDLY -->
+          <div class="fc-title">Réservez votre rendez-vous</div>
+          <div class="fc-sub">Quelques informations pour préparer notre échange.</div>
+          <div id="rdvForm">
+            <div class="f2">
+              <div class="fg">
+                <label class="fl" for="r-prenom">Prénom <span class="req">*</span></label>
+                <input type="text" class="fi" id="r-prenom" placeholder="Sophie" autocomplete="given-name">
+                <div class="ferr" id="r-prenomE">Requis.</div>
+              </div>
+              <div class="fg">
+                <label class="fl" for="r-nom">Nom <span class="req">*</span></label>
+                <input type="text" class="fi" id="r-nom" placeholder="Martin" autocomplete="family-name">
+                <div class="ferr" id="r-nomE">Requis.</div>
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="r-tel">Téléphone <span class="req">*</span></label>
+              <input type="tel" class="fi" id="r-tel" placeholder="06 12 34 56 78" autocomplete="tel">
+              <div class="ferr" id="r-telE">Numéro requis.</div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="r-email">Email <span class="req">*</span></label>
+              <input type="email" class="fi" id="r-email" placeholder="sophie@exemple.fr" autocomplete="email">
+              <div class="ferr" id="r-emailE">Email invalide.</div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="r-date">Date du mariage</label>
+              <input type="date" class="fi" id="r-date">
+            </div>
+            <div class="fg">
+              <label class="fl">Ce qui vous intéresse</label>
+              <div class="fchips" id="r-formule">
+                <div class="fchip" data-v="Essentielle"           onclick="fchip(this,'r-formule')">Essentielle</div>
+                <div class="fchip" data-v="Signature"             onclick="fchip(this,'r-formule')">Signature</div>
+                <div class="fchip" data-v="Sur mesure"            onclick="fchip(this,'r-formule')">Sur mesure</div>
+                <div class="fchip" data-v="Officiant cérémonie"   onclick="fchip(this,'r-formule')">Officiant</div>
+                <div class="fchip" data-v="Coordination Jour J"   onclick="fchip(this,'r-formule')">Coordination</div>
+                <div class="fchip" data-v="Jour J Intégral"       onclick="fchip(this,'r-formule')">Jour J Intégral</div>
+                <div class="fchip" data-v="Je ne sais pas encore" onclick="fchip(this,'r-formule')">Je ne sais pas encore</div>
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="r-msg">Votre projet en quelques mots</label>
+              <textarea class="fta" id="r-msg" placeholder="Style, couleurs, nombre d'invités, lieu de réception..."></textarea>
+            </div>
+            <div class="frgpd">Vos données sont utilisées uniquement pour préparer notre échange.</div>
+            <div class="fload" id="r-load"><div class="spinner"></div> Envoi en cours…</div>
+            <button class="fsub" id="r-btn" onclick="submitRdv()">Échangeons sur votre projet →</button>
+          </div>
+          <div class="fok" id="r-ok">
+            <div class="fok-icon">✦</div>
+            <div class="fok-title">Merci pour votre confiance.</div>
+            <div class="fok-text">Je vous contacterai personnellement sous 48 heures afin d'échanger sur votre projet et de voir comment donner vie à vos idées.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="si">
+    <div class="eye">Questions fréquentes</div>
+    <h2 class="st">Tout ce que vous<br><em>souhaitez savoir.</em></h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">En quoi consiste la visualisation 3D ?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Avant toute fabrication, vous recevez une modélisation 3D réaliste de votre décoration. Vous voyez chaque pièce, validez les couleurs, les formes, les proportions — et demandez des ajustements. Ce n'est qu'une fois que vous avez validé que je commence à créer. C'est un service rare qui vous garantit zéro mauvaise surprise le Jour J.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Peut-on choisir une seule prestation ?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Absolument. Chaque prestation — décoration, officiant de cérémonie laïque, coordination Jour J — est disponible séparément ou en bundle. Vous choisissez ce dont vous avez besoin, et nous bâtissons ensemble la formule qui correspond à votre projet.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Combien de temps avant le mariage faut-il réserver ?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Je recommande de me contacter au minimum 3 à 4 mois avant votre mariage. Pour les projets complets ou les formules Jour J Intégral, 6 mois est idéal afin de concevoir, visualiser, ajuster et fabriquer dans les meilleures conditions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Où intervenez-vous ? Y a-t-il des frais de déplacement ?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Je suis basé à Naves, en Corrèze (19), et j'interviens en priorité sur la Corrèze et la région Nouvelle-Aquitaine. Je me déplace également sur toute la France pour les projets qui le méritent. Les déplacements au-delà de 80 km sont facturés selon les frais réels et précisés dans le devis. La livraison postale est disponible partout en France pour les créations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Réalisez-vous uniquement des mariages ?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Le mariage est ma spécialité principale, mais j'interviens également sur d'autres événements — baptêmes, anniversaires, événements d'entreprise. N'hésitez pas à me contacter pour en discuter.</div>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="#rdv">D'autres questions ? Parlons-en →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ft-logo">L'Atelier <em>d'Holrï</em></div>
+  <div class="ft-tag">Naves · Corrèze · Nouvelle-Aquitaine · France</div>
+  <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:0.08em;margin-bottom:20px;">Décoration sur mesure · Officiant de cérémonie laïque · Coordination Jour J</div>
+  <div class="ft-social">
+    <a href="INSTAGRAM_URL_ICI" target="_blank" rel="noopener" id="ft-instagram" style="border:1px dashed rgba(168,132,74,0.4);padding:4px 10px;border-radius:3px;">📷 Instagram — À compléter</a>
+    <a href="FACEBOOK_URL_ICI" target="_blank" rel="noopener" id="ft-facebook" style="border:1px dashed rgba(168,132,74,0.4);padding:4px 10px;border-radius:3px;">📘 Facebook — À compléter</a>
+    <a href="#rdv">✉ Me contacter</a>
+  </div>
+  <div class="ft-div"></div>
+  <div class="ft-legal">© <span id="ft-year"></span> L'Atelier d'Holrï · Tous droits réservés · Créations artisanales sur mesure</div>
+</footer>
+
+<script>
+const SHEET_URL = "COLLE_ICI_TON_URL_APPS_SCRIPT";
+document.getElementById('ft-year').textContent = new Date().getFullYear();
+(function(){ const d=document.getElementById('r-date'); if(d) d.min=new Date().toISOString().split('T')[0]; })();
+
+function toggleNav() {
+  const nl = document.querySelector('.nav-links');
+  if (!nl) return;
+  nl.style.cssText = nl.style.display === 'flex' ? '' : 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(23,18,13,0.98);padding:20px 24px;gap:16px;z-index:199;';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+function fchip(chip, gid) {
+  document.querySelectorAll(`#${gid} .fchip`).forEach(c => c.classList.remove('on'));
+  chip.classList.add('on');
+}
+function getChip(gid) {
+  const s = document.querySelector(`#${gid} .fchip.on`);
+  return s ? s.dataset.v : '';
+}
+function scrollRdv(formule) {
+  document.getElementById('rdv').scrollIntoView({behavior:'smooth'});
+  if (formule) setTimeout(() => {
+    document.querySelectorAll('#r-formule .fchip').forEach(c => c.classList.toggle('on', c.dataset.v === formule));
+  }, 600);
+}
+function vfield(id, eid, test, msg) {
+  const v = document.getElementById(id).value.trim();
+  const ok = test(v);
+  document.getElementById(id).classList.toggle('err', !ok);
+  const e = document.getElementById(eid);
+  if (!ok) { e.textContent = msg; e.classList.add('on'); } else e.classList.remove('on');
+  return ok;
+}
+async function submitRdv() {
+  const ok1 = vfield('r-prenom','r-prenomE', v=>v.length>1, 'Requis.');
+  const ok2 = vfield('r-nom','r-nomE', v=>v.length>1, 'Requis.');
+  const ok3 = vfield('r-tel','r-telE', v=>v.replace(/\s/g,'').length>=9, 'Numéro requis.');
+  const ok4 = vfield('r-email','r-emailE', v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'Email invalide.');
+  if (!ok1||!ok2||!ok3||!ok4) return;
+  document.getElementById('r-load').classList.add('on');
+  document.getElementById('r-btn').style.display = 'none';
+  const data = {
+    type:'rdv_site', source:'site_mariage',
+    ref:'RDV-'+Date.now().toString(36).toUpperCase().slice(-6),
+    date: new Date().toLocaleDateString('fr-FR'),
+    prenom: document.getElementById('r-prenom').value.trim(),
+    nom: document.getElementById('r-nom').value.trim(),
+    tel: document.getElementById('r-tel').value.trim(),
+    email: document.getElementById('r-email').value.trim(),
+    dateMariage: document.getElementById('r-date').value || '',
+    formule: getChip('r-formule'),
+    message: document.getElementById('r-msg').value.trim(),
+  };
+  try { const l=JSON.parse(localStorage.getItem('rdv_site')||'[]');l.unshift(data);localStorage.setItem('rdv_site',JSON.stringify(l)); } catch(e){}
+  if (SHEET_URL && SHEET_URL !== "COLLE_ICI_TON_URL_APPS_SCRIPT") {
+    try { await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); } catch(e){}
+  }
+  document.getElementById('r-load').classList.remove('on');
+  document.getElementById('rdvForm').style.display = 'none';
+  document.getElementById('r-ok').classList.add('on');
+}
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── CALENDLY ──────────────────────────────────
+// Remplace TON_LIEN_CALENDLY par ton URL Calendly
+// ex: https://calendly.com/latelierdholri/appel-decouverte
+const CALENDLY_URL = "TON_LIEN_CALENDLY";
+
+function openCalendly() {
+  if (typeof Calendly !== 'undefined') {
+    Calendly.initPopupWidget({ url: CALENDLY_URL });
+  } else {
+    // Fallback si Calendly pas encore chargé
+    window.open(CALENDLY_URL, '_blank');
+  }
+}
+
+
+const selection = { deco: null, ceremonie: null, coordination: null };
+const labels = { deco: 'Décoration', ceremonie: 'Cérémonie laïque', coordination: 'Coordination' };
+
+function toggleCol(cat) {
+  const col = document.getElementById('col-' + cat);
+  const isSelected = col.classList.contains('selected');
+  if (isSelected) {
+    col.classList.remove('selected');
+    selection[cat] = null;
+  } else {
+    col.classList.add('selected');
+    if (!selection[cat]) selection[cat] = { name: null, price: 0 };
+  }
+  updateRecap();
+}
+
+function selectLevel(cat, name, price, el) {
+  selection[cat] = { name, price };
+  document.querySelectorAll('#col-' + cat + ' .presta-level-opt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  updateRecap();
+}
+
+function updateRecap() {
+  const recap = document.getElementById('presta-recap');
+  const lines = document.getElementById('recap-lines');
+  const totalEl = document.getElementById('recap-total');
+  const bundleEl = document.getElementById('recap-bundle');
+  const active = Object.entries(selection).filter(([,v]) => v !== null);
+  if (active.length === 0) { recap.classList.remove('visible'); return; }
+  recap.classList.add('visible');
+  let html = '', total = 0, hasDevis = false, count = 0;
+  active.forEach(([cat, v]) => {
+    const lbl = labels[cat];
+    const lvl = v && v.name ? v.name : '<em style="opacity:.5">— niveau à choisir</em>';
+    const priceStr = v && v.price > 0 ? v.price.toLocaleString('fr-FR') + '\u20ac' : v ? 'Sur devis' : '\u2014';
+    if (v && v.price > 0) total += v.price; else if (v) hasDevis = true;
+    count++;
+    html += '<div class="presta-recap-line"><span>' + lbl + ' \u00b7 ' + lvl + '</span><span>' + priceStr + '</span></div>';
+  });
+  lines.innerHTML = html;
+  totalEl.textContent = total > 0 ? '\u00c0 partir de ' + total.toLocaleString('fr-FR') + '\u20ac' + (hasDevis ? ' + sur devis' : '') : 'Sur devis';
+  bundleEl.style.display = count === 3 ? 'block' : 'none';
+}
+
+function sendToForm() {
+  const active = Object.entries(selection).filter(([,v]) => v !== null);
+  const summary = active.map(([cat, v]) => labels[cat] + (v && v.name ? ' \u00b7 ' + v.name : '')).join(' + ');
+  document.getElementById('rdv').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => { const m = document.getElementById('r-msg'); if (m && summary) m.value = summary; }, 700);
+}
+</script>
+</body>
+</html>
