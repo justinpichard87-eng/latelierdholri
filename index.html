@@ -1233,11 +1233,9 @@ function toggleFaq(btn) {
 const CALENDLY_URL = "https://calendly.com/justin-pichard87/new-meeting";
 
 function openCalendly() {
-  if (typeof Calendly !== 'undefined') {
-    Calendly.initPopupWidget({ url: CALENDLY_URL });
-  } else {
-    // Fallback si Calendly pas encore chargé
-    window.open(CALENDLY_URL, '_blank');
+  // Ouvre le lien dans un nouvel onglet de façon 100% fiable
+  window.open(CALENDLY_URL, '_blank');
+};
   }
 }
 
