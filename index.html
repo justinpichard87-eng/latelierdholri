@@ -1155,7 +1155,7 @@ h2.st.light{color:var(--ink);}
 </footer>
 
 <script>
-const SHEET_URL = https://script.google.com/macros/s/AKfycbxR2W6hcNx2v_Y_0NP7cWH62MYBXVkkZNm6-F_xPXGXWu_sIdv0dljzmn8BYpzIejcn/exec;
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxR2W6hcNx2v_Y_0NP7cWH62MYBXVkkZNm6-F_xPXGXWu_sIdv0dljzmn8BYpzIejcn/exec";
 document.getElementById('ft-year').textContent = new Date().getFullYear();
 (function(){ const d=document.getElementById('r-date'); if(d) d.min=new Date().toISOString().split('T')[0]; })();
 
@@ -1228,70 +1228,95 @@ function toggleFaq(btn) {
 }
 
 // ── CALENDLY ──────────────────────────────────
-// Remplace TON_LIEN_CALENDLY par ton URL Calendly
-// ex: https://calendly.com/latelierdholri/appel-decouverte
 const CALENDLY_URL = "https://calendly.com/justin-pichard87/new-meeting";
 
 function openCalendly() {
   if (typeof Calendly !== 'undefined') {
     Calendly.initPopupWidget({ url: CALENDLY_URL });
   } else {
-    // Fallback si Calendly pas encore chargé
     window.open(CALENDLY_URL, '_blank');
   }
 }
 
-
+// ── SÉLECTEUR DE PRESTATIONS DYNAMIQUE ────────
 const selection = { deco: null, ceremonie: null, coordination: null };
-const labels = { deco: 'Décoration', ceremonie: 'Cérémonie laïque', coordination: 'Coordination' };
 
-function toggleCol(cat) {
-  const col = document.getElementById('col-' + cat);
-  const isSelected = col.classList.contains('selected');
-  if (isSelected) {
+function toggleCol(type) {
+  const col = document.getElementById(`col-${type}`);
+  if (col.classList.contains('selected')) {
     col.classList.remove('selected');
-    selection[cat] = null;
+    selection[type] = null;
+    col.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    col.querySelectorAll('.presta-level-opt').forEach(o => o.classList.remove('active'));
   } else {
     col.classList.add('selected');
-    if (!selection[cat]) selection[cat] = { name: null, price: 0 };
   }
   updateRecap();
 }
 
-function selectLevel(cat, name, price, el) {
-  selection[cat] = { name, price };
-  document.querySelectorAll('#col-' + cat + ' .presta-level-opt').forEach(o => o.classList.remove('active'));
+function selectLevel(type, name, price, el) {
+  const col = document.getElementById(`col-${type}`);
+  col.querySelectorAll('.presta-level-opt').forEach(o => o.classList.remove('active'));
   el.classList.add('active');
+  const radio = el.querySelector('input[type="radio"]');
+  if (radio) radio.checked = true;
+  selection[type] = { name, price };
   updateRecap();
 }
 
 function updateRecap() {
   const recap = document.getElementById('presta-recap');
   const lines = document.getElementById('recap-lines');
-  const totalEl = document.getElementById('recap-total');
-  const bundleEl = document.getElementById('recap-bundle');
-  const active = Object.entries(selection).filter(([,v]) => v !== null);
-  if (active.length === 0) { recap.classList.remove('visible'); return; }
-  recap.classList.add('visible');
-  let html = '', total = 0, hasDevis = false, count = 0;
-  active.forEach(([cat, v]) => {
-    const lbl = labels[cat];
-    const lvl = v && v.name ? v.name : '<em style="opacity:.5">— niveau à choisir</em>';
-    const priceStr = v && v.price > 0 ? v.price.toLocaleString('fr-FR') + '\u20ac' : v ? 'Sur devis' : '\u2014';
-    if (v && v.price > 0) total += v.price; else if (v) hasDevis = true;
-    count++;
-    html += '<div class="presta-recap-line"><span>' + lbl + ' \u00b7 ' + lvl + '</span><span>' + priceStr + '</span></div>';
-  });
-  lines.innerHTML = html;
-  totalEl.textContent = total > 0 ? '\u00c0 partir de ' + total.toLocaleString('fr-FR') + '\u20ac' + (hasDevis ? ' + sur devis' : '') : 'Sur devis';
-  bundleEl.style.display = count === 3 ? 'block' : 'none';
+  const total = document.getElementById('recap-total');
+  const bundle = document.getElementById('recap-bundle');
+  
+  lines.innerHTML = '';
+  let sum = 0;
+  let count = 0;
+  let hasSurDevis = false;
+
+  for (const key in selection) {
+    if (selection[key]) {
+      count++;
+      const item = selection[key];
+      if (item.price === 0) {
+        hasSurDevis = true;
+      } else {
+        sum += item.price;
+      }
+      const line = document.createElement('div');
+      line.className = 'presta-recap-line';
+      const priceText = item.price > 0 ? `${item.price}€` : 'Sur devis';
+      line.innerHTML = `<span>${key.charAt(0).toUpperCase() + key.slice(1)} (${item.name})</span><span>${priceText}</span>`;
+      lines.appendChild(line);
+    }
+  }
+
+  if (count > 0) {
+    recap.classList.add('visible');
+    let totalStr = sum > 0 ? `${sum}€` : '';
+    if (hasSurDevis) {
+      totalStr += totalStr ? ' + Sur devis' : 'Sur devis';
+    }
+    total.textContent = totalStr;
+    bundle.style.display = count === 3 ? 'block' : 'none';
+  } else {
+    recap.classList.remove('visible');
+  }
 }
 
 function sendToForm() {
-  const active = Object.entries(selection).filter(([,v]) => v !== null);
-  const summary = active.map(([cat, v]) => labels[cat] + (v && v.name ? ' \u00b7 ' + v.name : '')).join(' + ');
+  const selectedTypes = [];
+  for (const key in selection) {
+    if (selection[key]) selectedTypes.push(`${key}: ${selection[key].name}`);
+  }
+  if (selectedTypes.length > 0) {
+    const msgBox = document.getElementById('r-msg');
+    if (msgBox) {
+      msgBox.value = `Sélection d'estimation : ${selectedTypes.join(' | ')}`;
+    }
+  }
   document.getElementById('rdv').scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => { const m = document.getElementById('r-msg'); if (m && summary) m.value = summary; }, 700);
 }
 </script>
 </body>
