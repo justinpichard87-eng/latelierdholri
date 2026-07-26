@@ -322,6 +322,8 @@ h2.st.light{color:var(--ink);}
 .apropos-btn{display:inline-block;padding:12px 28px;background:var(--gold);color:var(--white);border-radius:3px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;transition:background .2s;cursor:pointer;border:none;}
 .apropos-btn:hover{background:#9A7A52;}
 
+.presta-tier-badge{margin-top:6px;display:inline-block;padding:3px 10px;background:rgba(196,144,58,0.1);border:1px solid rgba(196,144,58,0.3);border-radius:10px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;color:var(--gold);letter-spacing:0.04em;}
+
 /* SÉLECTEUR PRESTATIONS */
 .presta-selector{margin-top:48px;}
 .presta-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:24px;}
@@ -398,10 +400,8 @@ h2.st.light{color:var(--ink);}
 <nav class="nav">
   <div class="nav-brand">L'Atelier <em>d'Holrï</em></div>
   <ul class="nav-links">
-    <li><a href="#pourquoi">Pourquoi nous</a></li>
-    <li><a href="#visu">Visualisation 3D</a></li>
     <li><a href="#jourj">Jour J</a></li>
-    <li><a href="#processus">Démarche</a></li>
+    <li><a href="#visu">Prestations</a></li>
     <li><a href="#formules">Formules</a></li>
     <li><a href="#apropos">À propos</a></li>
     <li><a href="#rdv">Contact</a></li>
@@ -427,7 +427,7 @@ h2.st.light{color:var(--ink);}
   <h1 class="hero-title">
     De la décoration à la cérémonie —<br><em>tout à votre image.</em>
   </h1>
-  <p class="hero-caption">Un seul artisan. Un mariage entièrement à votre image.</p>
+  <p class="hero-caption">Un seul professionnel. Un mariage entièrement à votre image.</p>
   <div class="hero-what">
     <a href="#visu" class="hero-tag">
       <span class="hero-tag-icon">🎨</span>
@@ -451,221 +451,41 @@ h2.st.light{color:var(--ink);}
   <div class="scroll-hint"><div class="scroll-line"></div>Découvrir</div>
 </section>
 
-<!-- POURQUOI NOUS -->
-<section class="pourquoi" id="pourquoi">
-  <div class="si">
-    <div class="eye">Ce qui me distingue</div>
-    <h2 class="st">Pourquoi me choisir,<br><em>moi ?</em></h2>
-    <div class="divider"></div>
-    <p class="sub">Voici ce que je vous offre — et que vous ne trouverez pas ailleurs réuni en une seule personne.</p>
-    <div class="pq-grid">
-      <div class="pq-item">
-        <div class="pq-check">✓</div>
-        <div class="pq-label"><strong>Décoration sur mesure & Fabrication artisanale</strong><span>Je conçois, je modélise en 3D, vous validez — puis je fabrique chaque pièce à la main, uniquement pour vous.</span></div>
-      </div>
-      <div class="pq-item">
-        <div class="pq-check">✓</div>
-        <div class="pq-label"><strong>Officiant de cérémonie laïque</strong><span>Une parole maîtrisée et émouvante, construite entièrement autour de votre couple.</span></div>
-      </div>
-      <div class="pq-item">
-        <div class="pq-check">✓</div>
-        <div class="pq-label"><strong>Coordination Jour J</strong><span>Vous profitez pleinement. Je gère le timing, les prestataires et les imprévus.</span></div>
-      </div>
-      <div class="pq-item">
-        <div class="pq-check">✓</div>
-        <div class="pq-label"><strong>Un seul interlocuteur</strong><span>De la première idée au dernier instant — une vision cohérente, sans coordination à gérer.</span></div>
-      </div>
-      <div class="pq-item">
-        <div class="pq-check">✓</div>
-        <div class="pq-label"><strong>Accompagnement de A à Z</strong><span>Conception, ajustements, livraison, installation — je suis présent à chaque étape.</span></div>
-      </div>
-    </div>
-    <div class="section-cta"><a href="#rdv">Parlons de votre projet →</a></div>
-  </div>
-</section>
 
-<!-- AVANTAGES -->
-<section class="visu" id="visu">
-  <div class="si">
-
-    <!-- DÉCORATION & 3D -->
-    <div class="visu-split" style="margin-top:16px;">
-      <div>
-        <div class="eye">Décoration & Visualisation 3D</div>
-        <h2 class="st">Vous voyez votre mariage<br><em>avant le grand jour.</em></h2>
-        <div class="divider"></div>
-        <p class="sub">Avant toute fabrication, vous recevez une modélisation 3D réaliste de votre décoration. Vous imaginez, vous ajustez, vous validez — puis je fabrique chaque pièce à la main. Centres de table, chevalets, vases décoratifs, compositions florales, figurines — chaque élément pensé pour votre mariage uniquement.</p>
-        <div class="visu-steps" style="margin-top:20px;">
-          <div class="v-step">
-            <div class="v-num">1</div>
-            <div>
-              <div class="v-title">Vous partagez votre vision</div>
-              <div class="v-desc">Ambiance, couleurs, style, nombre de tables — chaque détail qui vous tient à cœur est noté.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">2</div>
-            <div>
-              <div class="v-title">Vous recevez votre rendu 3D</div>
-              <div class="v-desc">Une visualisation réaliste de vos créations. Vous ajustez, vous affinez — jusqu'à ce que ce soit parfait.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">3</div>
-            <div>
-              <div class="v-title">Vous validez — je fabrique</div>
-              <div class="v-desc">Seulement après votre accord, chaque pièce est créée à la main avec soin. Livraison ou installation selon votre choix.</div>
-            </div>
-          </div>
-        </div>
-        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
-          <a href="#formules">Voir les formules décoration →</a>
-        </div>
-      </div>
-      <div class="visu-frames">
-        <div class="visu-frame-label">Avant — Vos inspirations</div>
-        <div class="visu-frame">
-          <div class="visu-ph"><span>✏️</span>Vos idées &amp; références<br><em style="font-size:11px;opacity:.5;">Moodboard / inspirations</em></div>
-        </div>
-        <div class="visu-frame-label">Après — Votre rendu 3D personnalisé</div>
-        <div class="visu-frame">
-          <div class="visu-ph"><span>🖼</span>Modélisation 3D réaliste<br><em style="font-size:11px;opacity:.5;">Votre rendu ici</em></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SÉPARATEUR -->
-    <div style="height:1px;background:var(--border);margin:64px 0;"></div>
-
-    <!-- OFFICIANT -->
-    <div class="visu-split">
-      <div>
-        <div class="eye">Officiant de cérémonie laïque</div>
-        <h2 class="st">Une cérémonie construite<br><em>autour de votre histoire.</em></h2>
-        <div class="divider"></div>
-        <p class="sub">Vous méritez une cérémonie qui vous émeut vraiment. Je rédige chaque discours à partir de ce que vous êtes, de ce que vous vivez ensemble — avec une éloquence maîtrisée et une présence qui met votre couple en lumière. Je m'habille dans le thème de votre mariage pour une cohérence visuelle totale.</p>
-        <div class="visu-steps" style="margin-top:20px;">
-          <div class="v-step">
-            <div class="v-num">1</div>
-            <div>
-              <div class="v-title">On raconte votre histoire</div>
-              <div class="v-desc">Un échange approfondi pour comprendre ce qui vous unit, vos valeurs, vos anecdotes, ce qui vous émeut.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">2</div>
-            <div>
-              <div class="v-title">Je rédige votre cérémonie</div>
-              <div class="v-desc">Un discours sur mesure, relu et ajusté jusqu'à ce que chaque mot vous ressemble.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">3</div>
-            <div>
-              <div class="v-title">Je l'anime le Jour J</div>
-              <div class="v-desc">Répétition, calage du timing, puis présence totale le grand jour — pour que chaque instant soit parfait.</div>
-            </div>
-          </div>
-        </div>
-        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
-          <a href="#formules">Voir les formules cérémonie →</a>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:center;">
-        <div class="visu-frame" style="width:100%;aspect-ratio:3/4;">
-          <div class="visu-ph"><span>🎙</span>Photo ou vidéo de cérémonie<br><em style="font-size:11px;opacity:.5;">À ajouter prochainement</em></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SÉPARATEUR -->
-    <div style="height:1px;background:var(--border);margin:64px 0;"></div>
-
-    <!-- COORDINATION -->
-    <div class="visu-split">
-      <div>
-        <div class="eye">Coordination Jour J</div>
-        <h2 class="st">Vous profitez de chaque instant.<br><em>Je coordonne tout le reste.</em></h2>
-        <div class="divider"></div>
-        <p class="sub">Vous avez imaginé ce jour depuis longtemps. Le Jour J, vous êtes là pour le vivre — pas pour gérer. Je prends en main le rétroplanning, les prestataires, les imprévus — en coulisses, sans que vous n'ayez à vous en préoccuper.</p>
-        <div class="visu-steps" style="margin-top:20px;">
-          <div class="v-step">
-            <div class="v-num">1</div>
-            <div>
-              <div class="v-title">Rétroplanning détaillé</div>
-              <div class="v-desc">Je prépare chaque minute de votre journée — de l'arrivée des prestataires au dernier slow.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">2</div>
-            <div>
-              <div class="v-title">Liaison avec les prestataires</div>
-              <div class="v-desc">Je suis leur interlocuteur unique le Jour J — plus aucun appel, plus aucune question ne vous parvient.</div>
-            </div>
-          </div>
-          <div class="v-step">
-            <div class="v-num">3</div>
-            <div>
-              <div class="v-title">Gestion des imprévus</div>
-              <div class="v-desc">Retard, imprévu de dernière minute — je gère en coulisses. Vous, vous souriez.</div>
-            </div>
-          </div>
-        </div>
-        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;">
-          <a href="#formules">Voir les formules coordination →</a>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:center;">
-        <div class="visu-frame" style="width:100%;aspect-ratio:3/4;">
-          <div class="visu-ph"><span>🗂</span>Photo de coordination Jour J<br><em style="font-size:11px;opacity:.5;">À ajouter prochainement</em></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- JOUR J -->
+<!-- ═══ JOUR J INTÉGRAL — remonté ═══ -->
 <section class="jourj" id="jourj">
   <div class="si">
-    <div class="eye eye-light">L'offre complète</div>
-    <h2 class="st light">Un seul artisan.<br><em>Un Jour J sans faille.</em></h2>
+    <h2 class="st light" style="max-width:640px;">Pourquoi choisir trois prestataires…<br><em>quand une seule personne peut porter votre vision ?</em></h2>
     <div class="divider"></div>
-    <p class="sub light">Vous rêvez d'une journée parfaitement orchestrée, sans avoir à vous soucier de quoi que ce soit. Trois expertises réunies autour d'une seule vision — la vôtre.</p>
+    <p class="sub light" style="margin-bottom:36px;">Du premier échange au dernier slow, je suis votre unique interlocuteur. Une cohérence totale. Un seul déplacement facturé. Zéro coordination à gérer.</p>
     <div class="jourj-pillars">
       <div class="jp">
-        <div class="jp-num">01</div>
         <div class="jp-icon">🎨</div>
         <div class="jp-title">Décoration sur mesure</div>
-        <div class="jp-sub">Ma spécialité</div>
-        <div class="jp-text">Vous imaginez une table qui vous ressemble. Je la modélise en 3D, vous la validez, je la crée. Des centres de table aux figurines de couple, chaque pièce est pensée pour votre mariage uniquement.</div>
-        <span class="jp-tag">Devis séparé disponible</span>
+        <div class="jp-text">Centres de table, chevalets, vases, compositions florales, figurines — modélisés en 3D, validés par vous, fabriqués à la main.</div>
+        <span class="jp-tag">Devis séparé possible</span>
       </div>
       <div class="jp">
-        <div class="jp-num">02</div>
         <div class="jp-icon">🎙</div>
-        <div class="jp-title">Officiant de cérémonie laïque</div>
-        <div class="jp-sub">L'art de la parole juste</div>
-        <div class="jp-text">Vous méritez une cérémonie qui vous émeut vraiment. Je construis chaque discours autour de votre histoire, avec une éloquence maîtrisée et une présence qui met votre couple en lumière.</div>
-        <span class="jp-tag">Devis séparé disponible</span>
+        <div class="jp-title">Officiant de cérémonie</div>
+        <div class="jp-text">Je rédige et anime votre cérémonie laïque. Je connais déjà votre histoire — pas besoin de tout réexpliquer à un nouvel interlocuteur.</div>
+        <span class="jp-tag">Devis séparé possible</span>
       </div>
       <div class="jp">
-        <div class="jp-num">03</div>
         <div class="jp-icon">🗂</div>
         <div class="jp-title">Coordination Jour J</div>
-        <div class="jp-sub">Vous profitez. Je coordonne.</div>
-        <div class="jp-text">Vous avez imaginé ce jour depuis longtemps. Le Jour J, vous profitez de chaque instant — je gère le timing, les prestataires et les imprévus en coulisses, pour que tout se déroule à la perfection.</div>
-        <span class="jp-tag">Devis séparé disponible</span>
+        <div class="jp-text">Rétroplanning, prestataires, imprévus — je gère tout en coulisses. Vous, vous souriez.</div>
+        <span class="jp-tag">Devis séparé possible</span>
       </div>
     </div>
     <div class="jourj-bundle">
       <div>
-        <div class="jb-title">L'expérience complète — <em style="color:var(--goldL);font-style:normal;">Jour J Intégral</em></div>
-        <div class="jb-text">Vous rêvez d'un mariage cohérent, fluide, inoubliable — sans coordonner plusieurs prestataires. Un seul interlocuteur, une seule vision, du premier échange au dernier instant. Et un seul déplacement facturé — là où trois prestataires séparés vous factureraient chacun leurs frais kilométriques.</div>
+        <div class="jb-title">Jour J Intégral — <em style="color:var(--goldL);font-style:normal;">l'expérience complète</em></div>
+        <div class="jb-text">Trois expertises. Un seul professionnel. Une seule vision. Et une seule facture — là où trois prestataires séparés vous factureraient chacun leurs frais de déplacement et leur temps de présence. Avec moi, tout est inclus dans un seul devis.</div>
         <div class="jb-items">
-          <span class="jb-item">✦ Décoration sur mesure</span>
+          <span class="jb-item">✦ Décoration &amp; 3D</span>
           <span class="jb-item">🎙 Cérémonie laïque</span>
-          <span class="jb-item">🗂 Coordination Jour J</span>
+          <span class="jb-item">🗂 Coordination</span>
         </div>
       </div>
       <div class="jb-cta">
@@ -676,69 +496,77 @@ h2.st.light{color:var(--ink);}
   </div>
 </section>
 
-<!-- PROCESSUS CLIENT -->
-<section class="processus" id="processus">
+<!-- ═══ PRESTATIONS DÉTAILLÉES — accordion ═══ -->
+<section class="visu" id="visu">
   <div class="si">
-    <div class="eye eye-light">Comment ça se passe</div>
-    <h2 class="st light">De votre premier message<br><em>au dernier instant.</em></h2>
-    <div class="divider"></div>
-    <p class="sub light">Un accompagnement clair, sans surprise, structuré autour de vous. Voici exactement ce qui se passe après votre prise de contact.</p>
-    <div class="proc-steps">
-      <div class="proc-step">
-        <div class="proc-num">1<span class="proc-icon">✉</span></div>
-        <div class="proc-delay">Jour 1</div>
-        <div class="proc-title">Vous prenez contact</div>
-        <div class="proc-text">Formulaire, Instagram ou email. Je vous réponds personnellement sous 48h pour convenir d'un appel découverte.</div>
+    <!-- DÉCORATION -->
+    <div class="visu-split" style="margin-top:16px;">
+      <div>
+        <div class="eye">Décoration &amp; Visualisation 3D</div>
+        <h2 class="st">Vous voyez votre mariage<br><em>avant le grand jour.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Vous imaginez, je modélise en 3D, vous validez — puis je fabrique à la main. Centres de table, chevalets, vases, compositions florales, figurines de couple. Rien de standard. Tout pour vous.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step"><div class="v-num">1</div><div><div class="v-title">Vous partagez votre vision</div><div class="v-desc">Ambiance, couleurs, style — chaque détail est noté.</div></div></div>
+          <div class="v-step"><div class="v-num">2</div><div><div class="v-title">Vous recevez votre rendu 3D</div><div class="v-desc">Vous ajustez jusqu'à ce que ce soit parfait.</div></div></div>
+          <div class="v-step"><div class="v-num">3</div><div><div class="v-title">Vous validez — je fabrique</div><div class="v-desc">Livraison ou installation selon votre formule.</div></div></div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;"><a href="#formules">Voir les formules →</a></div>
       </div>
-      <div class="proc-step">
-        <div class="proc-num">2<span class="proc-icon">📞</span></div>
-        <div class="proc-delay">Semaine 1</div>
-        <div class="proc-title">Appel découverte gratuit</div>
-        <div class="proc-text">20 à 30 minutes pour échanger sur votre vision, vos envies, votre style. Aucun engagement. On explore ensemble ce qui est possible.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">3<span class="proc-icon">📋</span></div>
-        <div class="proc-delay">Semaine 1-2</div>
-        <div class="proc-title">Devis personnalisé</div>
-        <div class="proc-text">Je vous adresse un devis détaillé, adapté à votre projet. Vous prenez le temps de réfléchir — sans pression de ma part.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">4<span class="proc-icon">🖼</span></div>
-        <div class="proc-delay">Après signature</div>
-        <div class="proc-title">Visualisation 3D</div>
-        <div class="proc-text">Je modélise votre décoration. Vous recevez un rendu réaliste, vous ajustez librement jusqu'à ce que ce soit parfait. Rien n'est fabriqué sans votre validation.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">5<span class="proc-icon">🛠</span></div>
-        <div class="proc-delay">Selon calendrier</div>
-        <div class="proc-title">Fabrication artisanale</div>
-        <div class="proc-text">Une fois validé, je fabrique chaque pièce avec soin. Vous êtes informé de l'avancement et pouvez suivre la création de vos décors.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">6<span class="proc-icon">✨</span></div>
-        <div class="proc-delay">Votre Jour J</div>
-        <div class="proc-title">Livraison &amp; installation</div>
-        <div class="proc-text">Livraison soigneuse ou installation sur site selon votre formule. Le Jour J, vous profitez — je m'occupe du reste.</div>
+      <div class="visu-frames">
+        <div class="visu-frame-label">Vos inspirations</div>
+        <div class="visu-frame"><div class="visu-ph"><span>✏️</span>Moodboard &amp; références</div></div>
+        <div class="visu-frame-label">Votre rendu 3D</div>
+        <div class="visu-frame"><div class="visu-ph"><span>🖼</span>Modélisation personnalisée<br><em style="font-size:11px;opacity:.5;">À venir</em></div></div>
       </div>
     </div>
-    <div class="section-cta">
-      <a href="#rdv">Démarrer mon projet →</a>
+    <div style="height:1px;background:var(--border);margin:56px 0;"></div>
+    <!-- OFFICIANT -->
+    <div class="visu-split">
+      <div>
+        <div class="eye">Officiant de cérémonie laïque</div>
+        <h2 class="st">Une cérémonie construite<br><em>autour de votre histoire.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Je rédige et anime votre cérémonie — avec éloquence, émotion, et une présence habillée dans le thème de votre mariage pour une cohérence visuelle totale.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step"><div class="v-num">1</div><div><div class="v-title">On raconte votre histoire</div><div class="v-desc">Un échange approfondi sur ce qui vous unit.</div></div></div>
+          <div class="v-step"><div class="v-num">2</div><div><div class="v-title">Je rédige votre cérémonie</div><div class="v-desc">Ajustements jusqu'à ce que chaque mot vous ressemble.</div></div></div>
+          <div class="v-step"><div class="v-num">3</div><div><div class="v-title">Je l'anime le Jour J</div><div class="v-desc">Répétition, timing, présence totale.</div></div></div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;"><a href="#formules">Voir les formules →</a></div>
+      </div>
+      <div style="display:flex;align-items:center;"><div class="visu-frame" style="width:100%;aspect-ratio:3/4;"><div class="visu-ph"><span>🎙</span>Photo à venir</div></div></div>
+    </div>
+    <div style="height:1px;background:var(--border);margin:56px 0;"></div>
+    <!-- COORDINATION -->
+    <div class="visu-split">
+      <div>
+        <div class="eye">Coordination Jour J</div>
+        <h2 class="st">Vous profitez.<br><em>Je coordonne tout.</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Rétroplanning, prestataires, imprévus — je gère tout en coulisses. Le Jour J, vous n'avez qu'une seule chose à faire : vivre le moment.</p>
+        <div class="visu-steps" style="margin-top:20px;">
+          <div class="v-step"><div class="v-num">1</div><div><div class="v-title">Rétroplanning détaillé</div><div class="v-desc">Chaque minute de votre journée est planifiée.</div></div></div>
+          <div class="v-step"><div class="v-num">2</div><div><div class="v-title">Liaison prestataires</div><div class="v-desc">Je suis leur unique interlocuteur le Jour J.</div></div></div>
+          <div class="v-step"><div class="v-num">3</div><div><div class="v-title">Gestion des imprévus</div><div class="v-desc">Je gère en coulisses. Vous, vous souriez.</div></div></div>
+        </div>
+        <div class="section-cta" style="justify-content:flex-start;margin-top:24px;"><a href="#formules">Voir les formules →</a></div>
+      </div>
+      <div style="display:flex;align-items:center;"><div class="visu-frame" style="width:100%;aspect-ratio:3/4;"><div class="visu-ph"><span>🗂</span>Photo à venir</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- FORMULES -->
+<!-- ═══ FORMULES — sélecteur 3 colonnes ═══ -->
 <section class="formules" id="formules">
   <div class="si">
     <div class="eye eye-light">Formules</div>
     <h2 class="st light">Composez votre mariage<br><em>à votre mesure.</em></h2>
     <div class="divider"></div>
-    <p class="sub light">Sélectionnez une, deux ou trois catégories selon vos besoins. Les tarifs s'affichent en temps réel — le devis final est établi après notre échange.</p>
-
+    <p class="sub light">Cliquez sur une, deux ou trois colonnes. Les tarifs s'affichent en temps réel.</p>
     <div class="presta-selector">
       <div class="presta-cols">
-
-        <!-- COLONNE 1 — DÉCORATION -->
+        <!-- DÉCORATION -->
         <div class="presta-col" id="col-deco" onclick="toggleCol('deco')">
           <div class="presta-col-header">
             <div class="presta-check">✓</div>
@@ -747,39 +575,20 @@ h2.st.light{color:var(--ink);}
             <div class="presta-col-tagline">Sur mesure · Visualisation 3D</div>
           </div>
           <div class="presta-col-body">
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">890€</span></div>
-              <div class="presta-tier-desc">Centres de table, porte-noms, visualisation 3D — jusqu'à 8 tables.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Signature</span><span class="presta-tier-price">1 490€</span></div>
-              <div class="presta-tier-desc">+ figurine couple, bouquet sur mesure, livre d'or, livraison.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">À partir de 2 000€</span></div>
-              <div class="presta-tier-desc">Conception libre, décoration complète, installation sur site.</div>
-            </div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">390€</span></div><div class="presta-tier-desc">Par table : 2 vases, 4 bougies, 1 numéro de table, 6 ronds de serviettes — visualisation 3D incluse.</div><div class="presta-tier-badge">📦 Mise à disposition · Option d'achat sur devis</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Signature</span><span class="presta-tier-price">790€</span></div><div class="presta-tier-desc">Tout de l'Essentielle + 1 accessoire au choix, 1 panière à pain, 6 dessous de verre, 1 décoration de bouteille de vin, 1 figurine de couple.</div><div class="presta-tier-badge">📦 Mise à disposition · Option d'achat sur devis</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">dès 1 300€</span></div><div class="presta-tier-desc">Décoration complète, installation sur site.</div><div class="presta-tier-badge">📦 Mise à disposition · Option d'achat sur devis</div></div>
             <div class="presta-level-select" onclick="event.stopPropagation()">
               <div class="presta-level-label">Choisir un niveau</div>
               <div class="presta-level-opts">
-                <label class="presta-level-opt" onclick="selectLevel('deco','Essentielle',890,this)">
-                  <input type="radio" name="level-deco" value="890">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">890€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('deco','Signature',1490,this)">
-                  <input type="radio" name="level-deco" value="1490">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature</div><div class="presta-level-opt-price">1 490€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('deco','Sur mesure',2000,this)">
-                  <input type="radio" name="level-deco" value="2000">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">À partir de 2 000€</div></div>
-                </label>
+                <label class="presta-level-opt" onclick="selectLevel('deco','Essentielle',390,this)"><input type="radio" name="level-deco" value="390"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">390€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('deco','Signature',790,this)"><input type="radio" name="level-deco" value="790"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature</div><div class="presta-level-opt-price">790€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('deco','Sur mesure',1300,this)"><input type="radio" name="level-deco" value="1300"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">dès 1 300€</div></div></label>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- COLONNE 2 — CÉRÉMONIE -->
+        <!-- CÉRÉMONIE -->
         <div class="presta-col" id="col-ceremonie" onclick="toggleCol('ceremonie')">
           <div class="presta-col-header">
             <div class="presta-check">✓</div>
@@ -788,47 +597,22 @@ h2.st.light{color:var(--ink);}
             <div class="presta-col-tagline">Officiant · Éloquence · Émotion</div>
           </div>
           <div class="presta-col-body">
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Voix de cérémonie</span><span class="presta-tier-price">390€</span></div>
-              <div class="presta-tier-desc">Lecture des vœux, poèmes et textes — une voix maîtrisée pour vos mots.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">590€</span></div>
-              <div class="presta-tier-desc">Cérémonie personnalisée complète — rédaction, répétition, animation.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Avec accessoires</span><span class="presta-tier-price">790€</span></div>
-              <div class="presta-tier-desc">+ accessoires 3D personnalisés et livret de cérémonie sur mesure.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Signature cérémonie</span><span class="presta-tier-price">À partir de 990€</span></div>
-              <div class="presta-tier-desc">+ décoration de cérémonie, créations 3D scénographiques, coordination.</div>
-            </div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Voix de cérémonie</span><span class="presta-tier-price">390€</span></div><div class="presta-tier-desc">Lecture des vœux et textes — une voix maîtrisée.</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Essentielle</span><span class="presta-tier-price">590€</span></div><div class="presta-tier-desc">Cérémonie complète — rédaction, répétition, animation.</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Avec accessoires</span><span class="presta-tier-price">690€</span></div><div class="presta-tier-desc">+ accessoires 3D et livret personnalisé.</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Signature cérémonie</span><span class="presta-tier-price">dès 990€</span></div><div class="presta-tier-desc">+ décoration de cérémonie et coordination.</div></div>
             <div class="presta-level-select" onclick="event.stopPropagation()">
               <div class="presta-level-label">Choisir un niveau</div>
               <div class="presta-level-opts">
-                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Voix de cérémonie',390,this)">
-                  <input type="radio" name="level-ceremonie" value="390">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Voix de cérémonie</div><div class="presta-level-opt-price">390€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Essentielle',590,this)">
-                  <input type="radio" name="level-ceremonie" value="590">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">590€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Avec accessoires',790,this)">
-                  <input type="radio" name="level-ceremonie" value="790">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Avec accessoires</div><div class="presta-level-opt-price">790€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Signature cérémonie',990,this)">
-                  <input type="radio" name="level-ceremonie" value="990">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature cérémonie</div><div class="presta-level-opt-price">À partir de 990€</div></div>
-                </label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Voix de cérémonie',390,this)"><input type="radio" name="level-ceremonie" value="390"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Voix de cérémonie</div><div class="presta-level-opt-price">390€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Essentielle',590,this)"><input type="radio" name="level-ceremonie" value="590"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Essentielle</div><div class="presta-level-opt-price">590€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Avec accessoires',690,this)"><input type="radio" name="level-ceremonie" value="690"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Avec accessoires</div><div class="presta-level-opt-price">690€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('ceremonie','Signature cérémonie',990,this)"><input type="radio" name="level-ceremonie" value="990"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Signature cérémonie</div><div class="presta-level-opt-price">dès 990€</div></div></label>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- COLONNE 3 — COORDINATION -->
+        <!-- COORDINATION -->
         <div class="presta-col" id="col-coordination" onclick="toggleCol('coordination')">
           <div class="presta-col-header">
             <div class="presta-check">✓</div>
@@ -837,64 +621,73 @@ h2.st.light{color:var(--ink);}
             <div class="presta-col-tagline">Jour J · Sérénité · Zéro friction</div>
           </div>
           <div class="presta-col-body">
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Coordination Jour J</span><span class="presta-tier-price">1 200€</span></div>
-              <div class="presta-tier-desc">Rétroplanning, liaison prestataires, présence et gestion le Jour J.</div>
-            </div>
-            <div class="presta-tier">
-              <div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">Sur devis</span></div>
-              <div class="presta-tier-desc">Coordination étendue, suivi personnalisé, accompagnement renforcé.</div>
-            </div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Coordination Jour J</span><span class="presta-tier-price">1 200€</span></div><div class="presta-tier-desc">Rétroplanning, prestataires, présence le Jour J.</div></div>
+            <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Sur mesure</span><span class="presta-tier-price">Sur devis</span></div><div class="presta-tier-desc">Coordination étendue et suivi personnalisé.</div></div>
             <div class="presta-level-select" onclick="event.stopPropagation()">
               <div class="presta-level-label">Choisir un niveau</div>
               <div class="presta-level-opts">
-                <label class="presta-level-opt" onclick="selectLevel('coordination','Coordination Jour J',1200,this)">
-                  <input type="radio" name="level-coordination" value="1200">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Coordination Jour J</div><div class="presta-level-opt-price">1 200€</div></div>
-                </label>
-                <label class="presta-level-opt" onclick="selectLevel('coordination','Sur mesure',0,this)">
-                  <input type="radio" name="level-coordination" value="0">
-                  <div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">Sur devis</div></div>
-                </label>
+                <label class="presta-level-opt" onclick="selectLevel('coordination','Coordination Jour J',1200,this)"><input type="radio" name="level-coordination" value="1200"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Coordination Jour J</div><div class="presta-level-opt-price">1 200€</div></div></label>
+                <label class="presta-level-opt" onclick="selectLevel('coordination','Sur mesure',0,this)"><input type="radio" name="level-coordination" value="0"><div class="presta-level-opt-info"><div class="presta-level-opt-name">Sur mesure</div><div class="presta-level-opt-price">Sur devis</div></div></label>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
-      <!-- RÉCAP DYNAMIQUE -->
+      <!-- RÉCAP -->
       <div class="presta-recap" id="presta-recap">
         <div class="presta-recap-title">Votre sélection</div>
         <div class="presta-recap-lines" id="recap-lines"></div>
         <div class="presta-recap-divider"></div>
-        <div class="presta-recap-total">
-          <div class="presta-recap-total-label">Estimation totale</div>
-          <div class="presta-recap-total-price" id="recap-total">—</div>
-        </div>
-        <div id="recap-bundle" style="display:none;">
-          <div class="presta-bundle-badge">✦ Bundle 3 prestations — tarif préférentiel appliqué au devis</div>
-        </div>
-        <div class="presta-recap-note">Tarifs indicatifs · Le devis définitif est établi après notre échange découverte.</div>
-        <div class="presta-cta-row">
-          <button class="presta-cta-main" onclick="sendToForm()">Demander mon devis →</button>
-        </div>
+        <div class="presta-recap-total"><div class="presta-recap-total-label">Estimation totale</div><div class="presta-recap-total-price" id="recap-total">—</div></div>
+        <div id="recap-bundle" style="display:none;"><div class="presta-bundle-badge">✦ Bundle 3 prestations — tarif préférentiel au devis</div></div>
+        <div class="presta-recap-note">Tarifs indicatifs · Devis définitif après notre échange. · Toutes les créations sont proposées en mise à disposition — option d'achat disponible sur devis.</div>
+        <div class="presta-cta-row"><button class="presta-cta-main" onclick="sendToForm()">Demander mon devis →</button></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- À PROPOS -->
+<!-- ═══ PROCESSUS — condensé ═══ -->
+<section class="processus" id="processus">
+  <div class="si">
+    <div class="eye eye-light">Comment ça se passe</div>
+    <h2 class="st light">De votre message<br><em>au Jour J.</em></h2>
+    <div class="divider"></div>
+    <div class="proc-steps">
+      <div class="proc-step"><div class="proc-num">1<span class="proc-icon">✉</span></div><div class="proc-delay">J+0</div><div class="proc-title">Contact</div><div class="proc-text">Formulaire ou Instagram. Réponse sous 72h.</div></div>
+      <div class="proc-step"><div class="proc-num">2<span class="proc-icon">📞</span></div><div class="proc-delay">Semaine 1</div><div class="proc-title">Appel découverte</div><div class="proc-text">30 min. Gratuit. Sans engagement.</div></div>
+      <div class="proc-step"><div class="proc-num">3<span class="proc-icon">📋</span></div><div class="proc-delay">Semaine 1-2</div><div class="proc-title">Devis personnalisé</div><div class="proc-text">Adapté à votre projet. Aucune pression.</div></div>
+      <div class="proc-step"><div class="proc-num">4<span class="proc-icon">🖼</span></div><div class="proc-delay">Après signature</div><div class="proc-title">Visualisation 3D</div><div class="proc-text">Vous validez chaque détail avant fabrication.</div></div>
+      <div class="proc-step"><div class="proc-num">5<span class="proc-icon">🛠</span></div><div class="proc-delay">J-X</div><div class="proc-title">Fabrication</div><div class="proc-text">Artisanale, soigneuse, suivie.</div></div>
+      <div class="proc-step"><div class="proc-num">6<span class="proc-icon">✨</span></div><div class="proc-delay">Jour J</div><div class="proc-title">Livraison &amp; présence</div><div class="proc-text">Installation, cérémonie, coordination — je suis là.</div></div>
+    </div>
+    <div class="section-cta"><a href="#rdv">Démarrer →</a></div>
+  </div>
+</section>
+
+<!-- ═══ PREUVE ═══ -->
+<section class="pourquoi" id="preuve" style="background:var(--parch);">
+  <div class="si">
+    <div class="eye">Garanties</div>
+    <h2 class="st">Ce que vous pouvez<br><em>attendre de moi.</em></h2>
+    <div class="divider"></div>
+    <div class="pq-grid">
+      <div class="pq-item"><div class="pq-check">✓</div><div class="pq-label"><strong>Professionnel français</strong><span>Basé à Naves, Corrèze. Créations 100% faites main.</span></div></div>
+      <div class="pq-item"><div class="pq-check">✓</div><div class="pq-label"><strong>Visualisation 3D incluse</strong><span>Vous validez avant fabrication. Toujours.</span></div></div>
+      
+      <div class="pq-item"><div class="pq-check">✓</div><div class="pq-label"><strong>Réponse sous 72h</strong><span>Je vous réponds personnellement, toujours.</span></div></div>
+      <div class="pq-item"><div class="pq-check">✓</div><div class="pq-label"><strong>Accompagnement complet</strong><span>Du premier échange à l'installation le Jour J.</span></div></div>
+      <div class="pq-item"><div class="pq-check">✓</div><div class="pq-label"><strong>Devis gratuit</strong><span>Sans engagement. Sans pression.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ À PROPOS ═══ -->
 <section class="apropos" id="apropos">
   <div class="si">
     <div class="apropos-split">
       <div class="apropos-img">
-        <div class="apropos-ph">
-          <span>🧑‍🎨</span>
-          Portrait du créateur<br>
-          <em style="font-size:11px;">Votre photo ici</em>
-        </div>
+        <div class="apropos-ph"><span>🧑‍🎨</span>Portrait du créateur<br><em style="font-size:11px;">Votre photo ici</em></div>
       </div>
       <div class="apropos-content">
         <div class="eye eye-light">Le créateur</div>
@@ -902,121 +695,71 @@ h2.st.light{color:var(--ink);}
         <div class="divider"></div>
 
         <div class="apropos-block">
-          <p class="sub">Derrière chaque création, chaque cérémonie, chaque détail imaginé et chaque moment partagé, il y a moi : <strong style="color:var(--ink);">Justin.</strong></p>
-          <p class="sub" style="margin-top:12px;">Si vous me croisez, vous découvrirez un grand gaillard toujours le sourire aux lèvres, l'esprit en ébullition et les baskets prêtes à partir à l'aventure. Je suis de ceux qui pensent que la vie, comme les plus beaux projets, mérite d'être vécue pleinement — en osant suivre les idées les plus folles.</p>
+          <p class="sub">Derrière chaque création, chaque cérémonie, chaque détail, il y a moi : <strong style="color:var(--ink);">Justin.</strong></p>
+          <p class="sub" style="margin-top:10px;">Un grand gaillard toujours le sourire aux lèvres, l'esprit en ébullition, les baskets prêtes à partir à l'aventure. Je suis de ceux qui pensent que la vie mérite d'être vécue pleinement — en osant suivre les idées les plus folles.</p>
         </div>
 
-        <div class="apropos-block" style="margin-top:28px;">
-          <div class="apropos-block-title">Pourquoi je fais ce que je fais</div>
-          <p class="sub">Pour moi, créer ne se résume pas à fabriquer un objet, organiser une journée ou célébrer une cérémonie.</p>
+        <div class="apropos-block" style="margin-top:24px;">
+          <div class="apropos-block-title">Pourquoi je fais ça</div>
           <div class="apropos-quote">Créer, c'est raconter une histoire.<br>La vôtre.</div>
-          <p class="sub">À travers une décoration sur mesure, une cérémonie laïque pleine d'émotion ou l'organisation de votre mariage, mon objectif reste toujours le même : transformer vos idées, vos souvenirs et votre personnalité en une expérience qui vous ressemble.</p>
+          <p class="sub">Mon objectif reste toujours le même : transformer vos idées, vos souvenirs et votre personnalité en une expérience qui vous ressemble. Vous seuls, au centre de tout.</p>
         </div>
 
         <div class="apropos-highlight">
-          Dans L'Atelier d'Holrï, il n'y a pas de catalogue, pas de solutions toutes faites, ni de projets reproduits à l'identique. Il y a avant tout vous — votre histoire, vos envies, et cette volonté de créer quelque chose qui ne ressemble à personne d'autre.
-        </div>
-
-        <div class="apropos-block">
-          <div class="apropos-block-title">Ma conviction</div>
-          <p class="sub">Parce qu'au fond, ma plus belle création n'est ni un objet, ni une décoration, ni même une cérémonie.</p>
-          <p class="sub" style="margin-top:10px;"><em style="color:var(--gold);">C'est l'émotion qu'ils font naître.</em></p>
-        </div>
-
-        <div class="apropos-block" style="margin-top:28px;">
-          <div class="apropos-block-title">L'impossible n'est jamais une réponse</div>
-          <p class="sub">Vous avez une idée audacieuse ? Un rêve un peu fou ? Une envie que l'on vous a déjà dite irréalisable ?<br><strong style="color:var(--gold);">Alors nous partons déjà sur de bonnes bases.</strong></p>
-          <p class="sub" style="margin-top:12px;">Dans mon atelier, l'impossible n'est pas envisageable — il devient un défi, une source d'inspiration, le point de départ d'une nouvelle aventure. S'il faut imaginer, dessiner, façonner, tester ou repousser les limites pour que vous puissiez dire le jour venu : <em style="color:var(--inkMid);">« C'est exactement nous. »</em> — alors je le ferai avec la même implication que si ce projet était le mien.</p>
+          L'impossible n'est jamais une réponse. C'est une invitation à créer autrement.<br><br>
+          Vous avez une idée folle ? Une envie qu'on vous a dite irréalisable ?<br>
+          <strong style="color:var(--gold);">Alors nous partons déjà sur de bonnes bases.</strong>
         </div>
 
         <div class="apropos-cta-block">
           <div class="apropos-cta-title">On écrit la suite ensemble ?</div>
-          <div class="apropos-cta-text">Si vous cherchez simplement un prestataire, je ne suis peut-être pas la bonne personne. En revanche, si vous cherchez quelqu'un capable de vous écouter, de comprendre votre histoire et de donner vie à vos idées — alors j'ai hâte de faire votre rencontre.</div>
+          <div class="apropos-cta-text">Si vous cherchez quelqu'un capable de vous écouter, de comprendre votre histoire et de donner vie à vos idées — j'ai hâte de faire votre rencontre.</div>
           <button class="apropos-btn" onclick="document.getElementById('rdv').scrollIntoView({behavior:'smooth'})">Commençons cette aventure →</button>
         </div>
-
         <div class="apropos-sign">Justin — Holrï</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALERIE -->
+<!-- ═══ GALERIE ═══ -->
 <section class="galerie" id="galerie">
   <div class="si">
     <div class="eye">Réalisations</div>
     <h2 class="st">Chaque pièce raconte<br><em>une histoire unique.</em></h2>
     <div class="divider"></div>
-    <p class="sub">Des créations conçues sur mesure pour des couples qui souhaitaient un mariage entièrement à leur image. Les photos des premières réalisations seront ajoutées prochainement.</p>
-    <div class="gallery">
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">💐</div><div class="g-ph-text">Centres de table floraux<br>sur mesure</div></div></div>
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🧍</div><div class="g-ph-text">Figurines de couple<br>personnalisées</div></div></div>
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">✨</div><div class="g-ph-text">Table de réception<br>complète</div></div></div>
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🌸</div><div class="g-ph-text">Bouquet de mariée<br>sur mesure</div></div></div>
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">📖</div><div class="g-ph-text">Livre d'or<br>personnalisé</div></div></div>
-      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🥂</div><div class="g-ph-text">Porte-noms &amp; marque-places<br>exclusifs</div></div></div>
+    <p class="sub">Les photos des premières réalisations seront ajoutées prochainement.</p>
+    <div class="gallery" style="margin-top:32px;">
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">💐</div><div class="g-ph-text">Centres de table</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🧍</div><div class="g-ph-text">Figurines de couple</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">✨</div><div class="g-ph-text">Table de réception</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🌸</div><div class="g-ph-text">Compositions florales</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">📖</div><div class="g-ph-text">Livret &amp; livre d'or</div></div></div>
+      <div class="g-item"><div class="g-ph"><div class="g-ph-icon">🥂</div><div class="g-ph-text">Porte-noms &amp; chevalets</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- PREUVE SOCIALE -->
+<!-- ═══ TÉMOIGNAGES ═══ -->
 <section class="social-proof" id="temoignages">
   <div class="si">
     <div class="eye">Ils me font confiance</div>
     <h2 class="st">Les premières histoires<br><em>s'écrivent en ce moment.</em></h2>
     <div class="divider"></div>
-
-    <!-- Message premium d'attente -->
-    <div style="max-width:680px;margin:0 auto;text-align:center;padding:48px 32px;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 24px rgba(196,144,58,0.08);">
-      <div style="font-size:36px;margin-bottom:20px;">✦</div>
-      <p style="font-family:'Georgia',serif;font-style:italic;font-size:clamp(17px,2.5vw,22px);color:var(--ink);line-height:1.5;margin-bottom:16px;">
-        "Les premiers mariages de la saison sont en cours.<br>
-        Chaque histoire mérite d'être racontée avec soin —<br>
-        les témoignages de nos couples seront publiés ici<br>
-        dès leur retour de voyage de noces."
-      </p>
-      <div style="width:40px;height:1px;background:var(--gold);margin:20px auto;opacity:.6;"></div>
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;color:var(--inkL);line-height:1.7;">
-        En attendant, vous pouvez suivre les coulisses des créations en cours,<br>
-        les préparatifs et les premières réalisations sur Instagram.
-      </p>
-      <div style="margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
-        <a class="social-btn" href="INSTAGRAM_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📷</span>Suivre sur Instagram</a>
-        <a class="social-btn" href="FACEBOOK_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📘</span>Suivre sur Facebook</a>
+    <div style="max-width:640px;margin:0 auto;text-align:center;padding:40px 28px;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 24px rgba(196,144,58,0.08);">
+      <div style="font-size:32px;margin-bottom:16px;">✦</div>
+      <p style="font-family:'Georgia',serif;font-style:italic;font-size:clamp(16px,2.2vw,20px);color:var(--ink);line-height:1.55;margin-bottom:14px;">"Les premiers mariages de la saison sont en cours.<br>Les témoignages seront publiés ici dès leur retour de voyage de noces."</p>
+      <div style="width:36px;height:1px;background:var(--gold);margin:16px auto;opacity:.6;"></div>
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--inkL);">Suivez les coulisses des créations en cours sur Instagram.</p>
+      <div style="margin-top:18px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        <a class="social-btn" href="INSTAGRAM_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📷</span>Instagram</a>
+        <a class="social-btn" href="FACEBOOK_URL_ICI" target="_blank" rel="noopener"><span class="social-btn-icon">📘</span>Facebook</a>
       </div>
-    </div>
-
-    <!-- Emplacements futurs discrets -->
-    <div class="sp-grid" style="margin-top:32px;">
-      <div class="sp-slot">
-        <div class="sp-slot-icon">⭐</div>
-        <div class="sp-slot-title">Avis Google</div>
-        <div class="sp-slot-text">À venir après les premiers mariages.</div>
-      </div>
-      <div class="sp-slot">
-        <div class="sp-slot-icon">💬</div>
-        <div class="sp-slot-title">Témoignages</div>
-        <div class="sp-slot-text">Les mots de nos couples, bientôt ici.</div>
-      </div>
-      <div class="sp-slot">
-        <div class="sp-slot-icon">📸</div>
-        <div class="sp-slot-title">Photos & coulisses</div>
-        <div class="sp-slot-text">Réalisations et avant/après à venir.</div>
-      </div>
-      <div class="sp-slot">
-        <div class="sp-slot-icon">🎬</div>
-        <div class="sp-slot-title">Vidéos</div>
-        <div class="sp-slot-text">Extraits de cérémonies et moments forts.</div>
-      </div>
-    </div>
-
-    <div class="section-cta" style="margin-top:32px;">
-      <a href="#rdv">Être parmi les premiers — Réserver mon appel →</a>
     </div>
   </div>
 </section>
 
-<!-- RDV DÉCOUVERTE -->
+<!-- ═══ RDV ═══ -->
 <section class="rdv" id="rdv">
   <div class="si">
     <div class="rdv-split">
@@ -1024,73 +767,53 @@ h2.st.light{color:var(--ink);}
         <div class="eye">Rendez-vous découverte</div>
         <h2 class="st">Un échange gratuit<br><em>pour donner vie à vos idées.</em></h2>
         <div class="divider"></div>
-        <p class="sub">Vous avez une vision — même floue. Un appel de 20 à 30 minutes suffit pour explorer ensemble comment la concrétiser. Sans engagement. Sans pression. Juste une conversation.</p>
+        <p class="sub">Vous avez une vision — même floue. 30 minutes suffisent. Sans engagement. Sans pression.</p>
         <div class="rdv-values">
-          <div class="rdv-val"><div class="rdv-dot"></div>Appel découverte gratuit &amp; sans engagement</div>
-          <div class="rdv-val"><div class="rdv-dot"></div>Réponse personnelle sous 48 heures</div>
-          <div class="rdv-val"><div class="rdv-dot"></div>Visualisation 3D offerte avant toute fabrication</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Appel gratuit &amp; sans engagement</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Réponse sous 72 heures</div>
+          <div class="rdv-val"><div class="rdv-dot"></div>Visualisation 3D incluse après signature du devis</div>
           <div class="rdv-val"><div class="rdv-dot"></div>Devis personnalisé après échange</div>
-          <div class="rdv-val"><div class="rdv-dot"></div>Accompagnement du début à la fin</div>
         </div>
       </div>
       <div>
         <div class="form-card">
-          <!-- BLOC CALENDLY -->
+          <!-- CALENDLY -->
           <div class="calendly-block">
-            <div class="calendly-block-title">📅 Choisissez votre créneau en autonomie</div>
-            <div class="calendly-block-sub">Sélectionnez directement un horaire qui vous convient — l'appel découverte dure 20 à 30 minutes.</div>
-            <button class="calendly-btn" onclick="openCalendly()">
-              <span class="calendly-btn-icon">🗓</span>
-              Réserver mon créneau
-            </button>
+            <div class="calendly-block-title">📅 Choisissez votre créneau</div>
+            <div class="calendly-block-sub">Sélectionnez directement un horaire — l'appel dure 30 minutes.</div>
+            <button class="calendly-btn" onclick="openCalendly()"><span class="calendly-btn-icon">🗓</span>Réserver mon créneau</button>
           </div>
           <div class="rdv-or">ou remplissez le formulaire</div>
-          <!-- FIN BLOC CALENDLY -->
-          <div class="fc-title">Réservez votre rendez-vous</div>
-          <div class="fc-sub">Quelques informations pour préparer notre échange.</div>
+          <div class="fc-title">Votre projet en quelques mots</div>
+          <div class="fc-sub">Je vous réponds personnellement sous 72h.</div>
           <div id="rdvForm">
             <div class="f2">
-              <div class="fg">
-                <label class="fl" for="r-prenom">Prénom <span class="req">*</span></label>
-                <input type="text" class="fi" id="r-prenom" placeholder="Sophie" autocomplete="given-name">
-                <div class="ferr" id="r-prenomE">Requis.</div>
-              </div>
-              <div class="fg">
-                <label class="fl" for="r-nom">Nom <span class="req">*</span></label>
-                <input type="text" class="fi" id="r-nom" placeholder="Martin" autocomplete="family-name">
-                <div class="ferr" id="r-nomE">Requis.</div>
-              </div>
+              <div class="fg"><label class="fl" for="r-prenom">Prénom <span class="req">*</span></label><input type="text" class="fi" id="r-prenom" placeholder="Sophie" autocomplete="given-name"><div class="ferr" id="r-prenomE">Requis.</div></div>
+              <div class="fg"><label class="fl" for="r-nom">Nom <span class="req">*</span></label><input type="text" class="fi" id="r-nom" placeholder="Martin" autocomplete="family-name"><div class="ferr" id="r-nomE">Requis.</div></div>
             </div>
-            <div class="fg">
-              <label class="fl" for="r-tel">Téléphone <span class="req">*</span></label>
-              <input type="tel" class="fi" id="r-tel" placeholder="06 12 34 56 78" autocomplete="tel">
-              <div class="ferr" id="r-telE">Numéro requis.</div>
-            </div>
-            <div class="fg">
-              <label class="fl" for="r-email">Email <span class="req">*</span></label>
-              <input type="email" class="fi" id="r-email" placeholder="sophie@exemple.fr" autocomplete="email">
-              <div class="ferr" id="r-emailE">Email invalide.</div>
-            </div>
-            <div class="fg">
-              <label class="fl" for="r-date">Date du mariage</label>
-              <input type="date" class="fi" id="r-date">
-            </div>
+            <div class="fg"><label class="fl" for="r-tel">Téléphone <span class="req">*</span></label><input type="tel" class="fi" id="r-tel" placeholder="06 12 34 56 78" autocomplete="tel"><div class="ferr" id="r-telE">Numéro requis.</div></div>
+            <div class="fg"><label class="fl" for="r-email">Email <span class="req">*</span></label><input type="email" class="fi" id="r-email" placeholder="sophie@exemple.fr" autocomplete="email"><div class="ferr" id="r-emailE">Email invalide.</div></div>
+            <div class="fg"><label class="fl" for="r-date">Date du mariage</label><input type="date" class="fi" id="r-date"></div>
             <div class="fg">
               <label class="fl">Ce qui vous intéresse</label>
               <div class="fchips" id="r-formule">
-                <div class="fchip" data-v="Essentielle"           onclick="fchip(this,'r-formule')">Essentielle</div>
-                <div class="fchip" data-v="Signature"             onclick="fchip(this,'r-formule')">Signature</div>
-                <div class="fchip" data-v="Sur mesure"            onclick="fchip(this,'r-formule')">Sur mesure</div>
-                <div class="fchip" data-v="Officiant cérémonie"   onclick="fchip(this,'r-formule')">Officiant</div>
-                <div class="fchip" data-v="Coordination Jour J"   onclick="fchip(this,'r-formule')">Coordination</div>
-                <div class="fchip" data-v="Jour J Intégral"       onclick="fchip(this,'r-formule')">Jour J Intégral</div>
+                <div class="fchip" data-v="Décoration" onclick="fchip(this,'r-formule')">Décoration</div>
+                <div class="fchip" data-v="Officiant" onclick="fchip(this,'r-formule')">Officiant</div>
+                <div class="fchip" data-v="Coordination" onclick="fchip(this,'r-formule')">Coordination</div>
+                <div class="fchip" data-v="Jour J Intégral" onclick="fchip(this,'r-formule')">Jour J Intégral</div>
                 <div class="fchip" data-v="Je ne sais pas encore" onclick="fchip(this,'r-formule')">Je ne sais pas encore</div>
               </div>
             </div>
             <div class="fg">
-              <label class="fl" for="r-msg">Votre projet en quelques mots</label>
-              <textarea class="fta" id="r-msg" placeholder="Style, couleurs, nombre d'invités, lieu de réception..."></textarea>
+              <label class="fl">Budget envisagé</label>
+              <div class="fchips" id="r-budget">
+                <div class="fchip" data-v="Moins de 1 500€" onclick="fchip(this,'r-budget')">— de 1 500€</div>
+                <div class="fchip" data-v="1 500 – 3 000€" onclick="fchip(this,'r-budget')">1 500 – 3 000€</div>
+                <div class="fchip" data-v="3 000 – 6 000€" onclick="fchip(this,'r-budget')">3 000 – 6 000€</div>
+                <div class="fchip" data-v="+ de 6 000€" onclick="fchip(this,'r-budget')">+ de 6 000€</div>
+              </div>
             </div>
+            <div class="fg"><label class="fl" for="r-msg">Votre projet</label><textarea class="fta" id="r-msg" placeholder="Style, couleurs, nombre d'invités, lieu..."></textarea></div>
             <div class="frgpd">Vos données sont utilisées uniquement pour préparer notre échange.</div>
             <div class="fload" id="r-load"><div class="spinner"></div> Envoi en cours…</div>
             <button class="fsub" id="r-btn" onclick="submitRdv()">Échangeons sur votre projet →</button>
@@ -1098,7 +821,7 @@ h2.st.light{color:var(--ink);}
           <div class="fok" id="r-ok">
             <div class="fok-icon">✦</div>
             <div class="fok-title">Merci pour votre confiance.</div>
-            <div class="fok-text">Je vous contacterai personnellement sous 48 heures afin d'échanger sur votre projet et de voir comment donner vie à vos idées.</div>
+            <div class="fok-text">Je vous contacterai personnellement sous 72 heures.</div>
           </div>
         </div>
       </div>
@@ -1106,37 +829,20 @@ h2.st.light{color:var(--ink);}
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ═══ FAQ — condensée ═══ -->
 <section class="faq" id="faq">
   <div class="si">
     <div class="eye">Questions fréquentes</div>
     <h2 class="st">Tout ce que vous<br><em>souhaitez savoir.</em></h2>
     <div class="divider"></div>
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">En quoi consiste la visualisation 3D ?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Avant toute fabrication, vous recevez une modélisation 3D réaliste de votre décoration. Vous voyez chaque pièce, validez les couleurs, les formes, les proportions — et demandez des ajustements. Ce n'est qu'une fois que vous avez validé que je commence à créer. C'est un service rare qui vous garantit zéro mauvaise surprise le Jour J.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Peut-on choisir une seule prestation ?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Absolument. Chaque prestation — décoration, officiant de cérémonie laïque, coordination Jour J — est disponible séparément ou en bundle. Vous choisissez ce dont vous avez besoin, et nous bâtissons ensemble la formule qui correspond à votre projet.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Combien de temps avant le mariage faut-il réserver ?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Je recommande de me contacter au minimum 3 à 4 mois avant votre mariage. Pour les projets complets ou les formules Jour J Intégral, 6 mois est idéal afin de concevoir, visualiser, ajuster et fabriquer dans les meilleures conditions.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Où intervenez-vous ? Y a-t-il des frais de déplacement ?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Je suis basé à Naves, en Corrèze (19), et j'interviens en priorité sur la Corrèze et la région Nouvelle-Aquitaine. Je me déplace également sur toute la France pour les projets qui le méritent. Les déplacements au-delà de 80 km sont facturés selon les frais réels et précisés dans le devis. La livraison postale est disponible partout en France pour les créations.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Réalisez-vous uniquement des mariages ?<div class="faq-icon">+</div></div>
-        <div class="faq-a">Le mariage est ma spécialité principale, mais j'interviens également sur d'autres événements — baptêmes, anniversaires, événements d'entreprise. N'hésitez pas à me contacter pour en discuter.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">En quoi consiste la visualisation 3D ?<div class="faq-icon">+</div></div><div class="faq-a">Avant toute fabrication, vous recevez une modélisation réaliste de votre décoration. Vous validez chaque détail — couleurs, formes, proportions. Je ne fabrique qu'après votre accord total.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Peut-on choisir une seule prestation ?<div class="faq-icon">+</div></div><div class="faq-a">Oui. Décoration, officiant et coordination sont disponibles séparément ou en bundle. Vous composez votre formule librement.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Où intervenez-vous ?<div class="faq-icon">+</div></div><div class="faq-a">Je suis basé à Naves (Corrèze, 19). J'interviens en priorité en Corrèze et Nouvelle-Aquitaine, et sur toute la France pour les projets complets. Les déplacements au-delà de 80 km sont facturés selon frais réels, précisés dans le devis.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Combien de temps à l'avance réserver ?<div class="faq-icon">+</div></div><div class="faq-a">3 à 4 mois minimum. Pour un Jour J Intégral, 6 mois est idéal pour concevoir, visualiser, ajuster et fabriquer sereinement.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Intervenez-vous sur d'autres événements ?<div class="faq-icon">+</div></div><div class="faq-a">Le mariage est ma spécialité principale. J'interviens aussi pour des baptêmes, anniversaires et événements d'entreprise. Contactez-moi pour en discuter.</div></div>
     </div>
-    <div class="section-cta">
-      <a href="#rdv">D'autres questions ? Parlons-en →</a>
-    </div>
+    <div class="section-cta"><a href="#rdv">D'autres questions ? Parlons-en →</a></div>
   </div>
 </section>
 
@@ -1210,6 +916,7 @@ async function submitRdv() {
     email: document.getElementById('r-email').value.trim(),
     dateMariage: document.getElementById('r-date').value || '',
     formule: getChip('r-formule'),
+    budget: getChip('r-budget'),
     message: document.getElementById('r-msg').value.trim(),
   };
   try { const l=JSON.parse(localStorage.getItem('rdv_site')||'[]');l.unshift(data);localStorage.setItem('rdv_site',JSON.stringify(l)); } catch(e){}
@@ -1228,95 +935,70 @@ function toggleFaq(btn) {
 }
 
 // ── CALENDLY ──────────────────────────────────
+// Remplace TON_LIEN_CALENDLY par ton URL Calendly
+// ex: https://calendly.com/latelierdholri/appel-decouverte
 const CALENDLY_URL = "https://calendly.com/justin-pichard87/new-meeting";
 
 function openCalendly() {
   if (typeof Calendly !== 'undefined') {
     Calendly.initPopupWidget({ url: CALENDLY_URL });
   } else {
+    // Fallback si Calendly pas encore chargé
     window.open(CALENDLY_URL, '_blank');
   }
 }
 
-// ── SÉLECTEUR DE PRESTATIONS DYNAMIQUE ────────
-const selection = { deco: null, ceremonie: null, coordination: null };
 
-function toggleCol(type) {
-  const col = document.getElementById(`col-${type}`);
-  if (col.classList.contains('selected')) {
+const selection = { deco: null, ceremonie: null, coordination: null };
+const labels = { deco: 'Décoration', ceremonie: 'Cérémonie laïque', coordination: 'Coordination' };
+
+function toggleCol(cat) {
+  const col = document.getElementById('col-' + cat);
+  const isSelected = col.classList.contains('selected');
+  if (isSelected) {
     col.classList.remove('selected');
-    selection[type] = null;
-    col.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-    col.querySelectorAll('.presta-level-opt').forEach(o => o.classList.remove('active'));
+    selection[cat] = null;
   } else {
     col.classList.add('selected');
+    if (!selection[cat]) selection[cat] = { name: null, price: 0 };
   }
   updateRecap();
 }
 
-function selectLevel(type, name, price, el) {
-  const col = document.getElementById(`col-${type}`);
-  col.querySelectorAll('.presta-level-opt').forEach(o => o.classList.remove('active'));
+function selectLevel(cat, name, price, el) {
+  selection[cat] = { name, price };
+  document.querySelectorAll('#col-' + cat + ' .presta-level-opt').forEach(o => o.classList.remove('active'));
   el.classList.add('active');
-  const radio = el.querySelector('input[type="radio"]');
-  if (radio) radio.checked = true;
-  selection[type] = { name, price };
   updateRecap();
 }
 
 function updateRecap() {
   const recap = document.getElementById('presta-recap');
   const lines = document.getElementById('recap-lines');
-  const total = document.getElementById('recap-total');
-  const bundle = document.getElementById('recap-bundle');
-  
-  lines.innerHTML = '';
-  let sum = 0;
-  let count = 0;
-  let hasSurDevis = false;
-
-  for (const key in selection) {
-    if (selection[key]) {
-      count++;
-      const item = selection[key];
-      if (item.price === 0) {
-        hasSurDevis = true;
-      } else {
-        sum += item.price;
-      }
-      const line = document.createElement('div');
-      line.className = 'presta-recap-line';
-      const priceText = item.price > 0 ? `${item.price}€` : 'Sur devis';
-      line.innerHTML = `<span>${key.charAt(0).toUpperCase() + key.slice(1)} (${item.name})</span><span>${priceText}</span>`;
-      lines.appendChild(line);
-    }
-  }
-
-  if (count > 0) {
-    recap.classList.add('visible');
-    let totalStr = sum > 0 ? `${sum}€` : '';
-    if (hasSurDevis) {
-      totalStr += totalStr ? ' + Sur devis' : 'Sur devis';
-    }
-    total.textContent = totalStr;
-    bundle.style.display = count === 3 ? 'block' : 'none';
-  } else {
-    recap.classList.remove('visible');
-  }
+  const totalEl = document.getElementById('recap-total');
+  const bundleEl = document.getElementById('recap-bundle');
+  const active = Object.entries(selection).filter(([,v]) => v !== null);
+  if (active.length === 0) { recap.classList.remove('visible'); return; }
+  recap.classList.add('visible');
+  let html = '', total = 0, hasDevis = false, count = 0;
+  active.forEach(([cat, v]) => {
+    const lbl = labels[cat];
+    const lvl = v && v.name ? v.name : '<em style="opacity:.5">— niveau à choisir</em>';
+    const priceStr = v && v.price > 0 ? v.price.toLocaleString('fr-FR') + '\u20ac' : v ? 'Sur devis' : '\u2014';
+    if (v && v.price > 0) total += v.price; else if (v) hasDevis = true;
+    count++;
+    html += '<div class="presta-recap-line"><span>' + lbl + ' \u00b7 ' + lvl + '</span><span>' + priceStr + '</span></div>';
+  });
+  lines.innerHTML = html;
+  totalEl.textContent = total > 0 ? '\u00c0 partir de ' + total.toLocaleString('fr-FR') + '\u20ac' + (hasDevis ? ' + sur devis' : '') : 'Sur devis';
+  bundleEl.style.display = count === 3 ? 'block' : 'none';
 }
 
 function sendToForm() {
-  const selectedTypes = [];
-  for (const key in selection) {
-    if (selection[key]) selectedTypes.push(`${key}: ${selection[key].name}`);
-  }
-  if (selectedTypes.length > 0) {
-    const msgBox = document.getElementById('r-msg');
-    if (msgBox) {
-      msgBox.value = `Sélection d'estimation : ${selectedTypes.join(' | ')}`;
-    }
-  }
+  const active = Object.entries(selection).filter(([,v]) => v !== null);
+  const summary = active.map(([cat, v]) => labels[cat] + (v && v.name ? ' \u00b7 ' + v.name : '')).join(' + ');
   document.getElementById('rdv').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => { const m = document.getElementById('r-msg'); if (m && summary) m.value = summary; }, 700);
 }
 </script>
 </body>
